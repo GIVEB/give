@@ -22,16 +22,54 @@ repositories {
 }
 
 dependencies {
+	//jpa
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	//web
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//lombok
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	//mysql connector
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'mysql:mysql-connector-java'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// test 환경에서 lombok 실행
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	// Querydsl 설정
+	implementation 'com.querydsl:querydsl-jpa'
+	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+	//Swagger 설정
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+clean{
+	delete file('src/main/generated')
+}
+
+def querydslSrcDir = 'src/main/generated'
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java', querydslSrcDir]
+		}
+	}
 }
