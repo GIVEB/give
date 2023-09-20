@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
 import ten.give.common.enums.Gender;
 
@@ -32,7 +33,7 @@ public class DonorUpdateForm {
     private LocalDate donorDate;
 
     @ApiModelProperty(value = "혈액원", required = true, example = "충청북도")
-    private String donorCenter;
+    private DonorCenter donorCenter;
 
     @ApiModelProperty(value = "변경할 user", required = true, example = "2")
     private Long userId;

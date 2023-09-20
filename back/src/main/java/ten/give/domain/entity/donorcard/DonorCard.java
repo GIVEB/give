@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
 import ten.give.domain.entity.user.User;
 import ten.give.common.enums.Gender;
@@ -46,10 +47,9 @@ public class DonorCard {
     @NotNull
     private LocalDate donorDate;
 
-    @NotNull
-    @NotEmpty
+    @Enumerated(EnumType.STRING)
     @Column(length = 200)
-    private String donorCenter;
+    private DonorCenter donorCenter;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

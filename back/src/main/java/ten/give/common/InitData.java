@@ -2,6 +2,7 @@ package ten.give.common;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
 import ten.give.domain.entity.donorcard.DonorCard;
 import ten.give.domain.entity.repository.donorcard.DonorCardRepository;
@@ -11,6 +12,8 @@ import ten.give.common.enums.Gender;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
+
+import static ten.give.common.enums.DonorCenter.*;
 
 @Component
 @RequiredArgsConstructor
@@ -35,7 +38,7 @@ public class InitData {
                     .gender(Gender.M)
                     .birth(LocalDate.of(1994,02,11))
                     .donorDate(LocalDate.of(2023,9,11))
-                    .donorCenter("seoul")
+                    .donorCenter(CHUNGNAM)
                     .kind(DonorKind.WHOLE)
                     .user(user).build();
             cardRepository.saveCard(donorCard);

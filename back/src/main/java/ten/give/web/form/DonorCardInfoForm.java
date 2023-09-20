@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
 import ten.give.common.enums.Gender;
 
@@ -31,7 +32,7 @@ public class DonorCardInfoForm {
     @ApiModelProperty(value="헌혈 날짜 [년-월-일]", example = "2023-09-01", required = true)
     private LocalDate donorDate;
     @ApiModelProperty(value="혈액원", example = "충청북도", required = true)
-    private String donorCenter;
+    private DonorCenter donorCenter;
     @ApiModelProperty(value="소유자 ID", example = "3", required = true)
     private Long userId;
     @ApiModelProperty(value="등록 날짜 / 기부된 날짜 [년-월-일]", example = "2023-09-11", required = false)

@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
 import ten.give.common.enums.Gender;
 
@@ -34,7 +35,7 @@ public class DonorAddForm {
     private LocalDate donorDate;
 
     @ApiModelProperty(value = "혈액원", required = true, example = "충청북도")
-    private String donorCenter;
+    private DonorCenter donorCenter;
 
     @ApiModelProperty(value = "로그인 User", required = true, example = "3")
     private Long userId;

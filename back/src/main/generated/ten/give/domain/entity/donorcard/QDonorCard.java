@@ -26,7 +26,7 @@ public class QDonorCard extends EntityPathBase<DonorCard> {
 
     public final NumberPath<Long> cardId = createNumber("cardId", Long.class);
 
-    public final StringPath donorCenter = createString("donorCenter");
+    public final EnumPath<ten.give.common.enums.DonorCenter> donorCenter = createEnum("donorCenter", ten.give.common.enums.DonorCenter.class);
 
     public final DatePath<java.time.LocalDate> donorDate = createDate("donorDate", java.time.LocalDate.class);
 
