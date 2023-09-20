@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor card addForm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    .container {}
+
+    header {
+      background-color: dodgerblue;
+      height: 100px;
+    }
+
+    section {
+      position: relative;
+
+      height: 800px;
+    }
+
+
+    .wrapper {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
+    .donorCard {
+      position: absolute;
+      width: 80%;
+      height: 70%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
+    .card-title {
+      height: 20%;
+      background-color: darkgrey;
+      border-radius: 30px 30px 0% 0;
+    }
+
+    .cardBody {
+      height: 80%;
+      background-color: rgb(78, 77, 77);
+      color: #fff;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .cardNoWrapper {
+      width: 90%;
+      height: 60%;
+      background-color: bisque;
+      border-radius: 5px;
+    }
+
+
+    footer {
+      background-color: darkgray;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="container-fluid">
+    header
+  </header>
+
+  <div class="container">
+    <section class="cardView">
+      <div class="wrapper">
+        <div class="row-cols-1 donorCard">
+          <div class="col card-title">
+            <div class="row h-100 align-items-center text-start ms-2">
+              <div class="col-6">
+                <h1 class="p-4">헌혈 증서</h1>
+              </div>
+              <div class="col-6">
+                <div class="cardNoWrapper">
+                  <div class="row align-items-center">
+                    <div class="col-2 ms-3 text-center">증서<br>번호</div>
+                    <div class="col-9">
+                      <input type="text" class="form-control" name="donorId" id="donorId" placeholder="증서번호 입력" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col cardBody p-4">
+            <div class="row mb-3 mt-4">
+              <div class="col-6">
+                <div class="row">
+                  <label class="col-3" for="name" class="form-label">성 명</label>
+                  <input class="col-9" type="text" class="form-control" id="name" placeholder="이름" disabled>
+                </div>
+                <div class="row mt-3">
+                  <label class="col-3" for="birth" class="form-label">생년월일</label>
+                  <input class="col-9" type="text" class="form-control" id="birth" placeholder="생년월일" disabled>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <div class="ms-3 col-2">종 류 :</div>
+                  <div class="ms-3 col-2 form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox1" name="kind" value="whole" disabled>
+                    <label class="form-check-label" for="inlineCheckbox1">전혈</label>
+                  </div>
+                  <div class="col-5 form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox2" name="kind" value="option2" disabled>
+                    <label class="form-check-label" for="inlineCheckbox2">혈소판</label>
+                  </div>
+                  <div class="ms-3 col-2"></div>
+                  <div class="ms-3 col-2 form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox3" name="kind" value="option3" disabled>
+                    <label class="form-check-label" for="inlineCheckbox3">혈장</label>
+                  </div>
+                  <div class="col-5 form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox4" name="kind" value="option4" disabled>
+                    <label class="form-check-label" for="inlineCheckbox4">혈소판혈장</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="ms-3 col-2">성별</div>
+                  <div class=" col-2 form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="m" checked disabled>
+                    <label class="form-check-label" for="male" disabled>
+                      남
+                    </label>
+                  </div>
+                  <div class="col-2 form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="f" disabled>
+                    <label class="form-check-label" for="female" disabled>
+                      여
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-5 mb-4">
+                <p>사랑의 헌혈에 동참하여 생명 나눔을 몸소 실천한 귀하에게 깊은 존경과 감사의 마음을 담아 이 증서를 드립니다.</p>
+              </div>
+
+              <div class="col-6">
+                <div class="row">
+                  <label class="col-3" for="donordate" class="form-label">헌혈일자:</label>
+                  <input class="col-9" type="text" class="form-control" id="donordate" placeholder="헌혈일자" disabled>
+                </div>
+                <div class="row mt-3">
+                  <label class="col-3" for="donorcenter" class="form-label">혈액원명</label>
+                  <input class="col-9" type="text" class="form-control" id="donorcenter" placeholder="혈액원명" disabled>
+                </div>
+              </div>
+
+              <div class="col-6 align-self-end mt-5">
+                <div class="row">
+                  <div class="ms-3 col-12">
+                    <p class="fs-4">보건복지부장관 &nbsp&nbsp&nbsp&nbsp(&nbsp인&nbsp)</p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <footer class="container-fluid">footer</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
