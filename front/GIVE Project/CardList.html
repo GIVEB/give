@@ -7,9 +7,9 @@
 
     <body>
         <div class="container">
-            <div class="modal_container">
-                <div class="modal_body" id="modal">
-                    <button id="closeModal">dd</button>
+            <div id="modal" class="modal_container d-none">
+                <div class="modal_body d-none" >
+                    <button id="closeModal" onclick="modalCloseBtn()">dd</button>
                 </div>
             </div>
 
@@ -30,7 +30,7 @@
                         <div class="bc_list_item"></div><div class="bc_list_item"></div><div class="bc_list_item"></div><br>
                         <div class="bc_list_item"></div><div class="bc_list_item"></div><div class="bc_list_item"></div><br>
                         <div class="bc_list_item"></div><div class="bc_list_item"></div><div class="bc_list_item"></div><br>
-                        <button type="button" id="openModal" class="give_btn">기브하기</button>
+                        <button type="button" id="openModal" class="give_btn" onclick="giveBtnClick()">기브하기</button>
                     </div>
                 </div>
             </div>
@@ -46,16 +46,20 @@
     </body>
 
     <script>
-        const modal = document.getElementById("modal");
-        const openModalBtn = document.getElementById("openModal");
-        const closeModalBtn = document.getElementById("closeModal");
+        const $modal = document.getElementById("modal");
+        const $modalBody = document.querySelector(".modal_body");
 
-        openModalBtn.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
+        function giveBtnClick(){
+            $modal.classList.remove('d-none');
+            $modalBody.classList.remove('d-none');
+        }
 
-        closeModalBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
+        function modalCloseBtn(){
+            $modal.classList.add('d-none');
+            $modalBody.classList.add('d-none');
+        }
+
+
+
     </script>
 </html>
