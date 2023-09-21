@@ -119,21 +119,20 @@ h3{
 }
 
 .modal_body {
-
     position:fixed;
     z-index:1;
     left:0;
     top:0;
-    width: 80px;
-    height: 80px;
-    background-color:green;
+    width:100%;
+    height:100%;
 }
 
 .modal_container{
+    text-align: center;
     position: fixed;
     z-index: 1;
-    width: 300px;
-    height: 300px;
+    width: 90%;
+    height: 80%;
     left: 0;
     top: 0;
     width: 100%;
@@ -154,3 +153,75 @@ h3{
 .d-block{
     display: block;
 }
+
+
+header {
+    background-color: dodgerblue;
+    height: 100px;
+  }
+
+  section {
+    position: relative;
+
+    height: 800px;
+  }
+
+
+  .wrapper {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  .donorCard {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  .card-title {
+    height: 20%;
+    background-color: darkgrey;
+    border-radius: 30px 30px 0% 0;
+  }
+
+  .cardBody {
+    height: 80%;
+    background-color: rgb(78, 77, 77);
+    color: #fff;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .cardNoWrapper {
+    width: 90%;
+    height: 60%;
+    background-color: bisque;
+    border-radius: 5px;
+  }
+
+
+  footer {
+    background-color: darkgray;
+    height: 100px;
+  }
+
+  .modal_close_btn{
+    display: inline-block;
+    width:80px;
+    height:80px;
+    font-size:35px;
+    color:rgb(33, 33, 33);
+    background-color: rgba(103, 99, 99, 0.7);
+    border-radius: 100%;
+    border:none;
+    cursor:none;
+    margin:0;
+  }
