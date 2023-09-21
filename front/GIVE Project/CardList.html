@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="StyleForm.css" rel="stylesheet">
+        <meta charset="utf-8">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="modal_container">
+                <div class="modal_body" id="modal">
+                    <button id="closeModal">dd</button>
+                </div>
+            </div>
+
+        
+            <div class="top_content">
+                <div class="top_menu_side">
+                    <button class="menu_btn">give</button>
+                </div>
+                <div class="top_mypage_side">
+                    <button class="mypage_btn">마이페이지</button>
+                    <button class="mypage_btn">문의</button>
+                    <button style="padding-right:30px;" class="mypage_btn">이벤트</button>
+                </div>
+            </div>
+            <div class="work_space">
+                <div class="bc_list_container">
+                    <div class="bc_list">
+                        <div class="bc_list_item"></div><div class="bc_list_item"></div><div class="bc_list_item"></div><br>
+                        <div class="bc_list_item"></div><div class="bc_list_item"></div><div class="bc_list_item"></div><br>
+                        <div class="bc_list_item"></div><div class="bc_list_item"></div><div class="bc_list_item"></div><br>
+                        <button type="button" id="openModal" class="give_btn">기브하기</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom_content">
+                <h3 style="padding:10px;">기브</h3>
+                <button class="inline_content customer_center_btn">헌혈의 집 찾기</button>
+                <button class="inline_content customer_center_btn">고객센터</button>
+                <button class="inline_content customer_center_btn">레드커넥트</button><br><br>
+                <p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p>
+                <p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const modal = document.getElementById("modal");
+        const openModalBtn = document.getElementById("openModal");
+        const closeModalBtn = document.getElementById("closeModal");
+
+        openModalBtn.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
+
+        closeModalBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    </script>
+</html>
