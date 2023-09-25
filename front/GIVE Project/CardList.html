@@ -12,7 +12,7 @@
     <body>
         <div class="container">
             <div id="modal" class="modal_container d-none">
-                <div class="modal_body d-none">
+                <div id="modal_body" class="modal_body d-none">
                     <div class="container">
                         <section class="cardView">
                           <div class="wrapper">
@@ -154,10 +154,8 @@
     </body>
 
     <script>
-      
-
         const $modal = document.getElementById("modal");
-        const $modalBody = document.querySelector(".modal_body");
+        const $modalBody = document.getElementById("modal_body");
 
         function giveBtnClick(){
             $modal.classList.remove('d-none');
@@ -167,7 +165,6 @@
         function modalCloseBtn(){
             $modal.classList.add('d-none');
             $modalBody.classList.add('d-none');
-        }
-        
+        }    
     </script>
 </html>
