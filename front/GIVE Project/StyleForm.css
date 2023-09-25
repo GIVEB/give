@@ -61,7 +61,7 @@ footer {
 .mypage_btn{
     font-size:20px;
     height:150px;
-    background-color: rgb(207, 207, 207);
+    background-color: transparent;
     border:none;
     cursor:pointer;
     min-width: 100px;
