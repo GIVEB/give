@@ -34,6 +34,17 @@
       transform: translate(-50%, -50%);
       border-radius: 4% 4% 4% 4%;
     }
+
+    .cert_modal{
+      background-color: rgb(207, 207, 207);
+      position: absolute;
+      width: 74%;
+      height: 48%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
   </style>
 </head>
 
@@ -60,33 +71,21 @@
           </div>
           <div class="row mt-3"></div>
 
-          <div class="row justify-content-center my-2">
-            <div class="col-9">
-              <input class="form-control" type="text" id="email" placeholder="이메일">
-            </div>
-          </div>
-
-          <div class="row justify-content-center my-4">
+          <div class="row justify-content-center my-3">
             <div class="col-9">
               <input class="form-control" type="text" id="name" placeholder="이름">
             </div>
           </div>
 
-          <div class="row justify-content-center my-4">
-            <div class="col-3">
-              <input class="form-control" type="text" id="year" placeholder="년">
-            </div>
-            <div class="col-3">
-              <input class="form-control" type="text" id="month" placeholder="월">
-            </div>
-            <div class="col-3">
-              <input class="form-control" type="text" id="day" placeholder="일">
+          <div class="row justify-content-center my-3">
+            <div class="col-9">
+              <input class="form-control" type="text" id="tel" placeholder="전화번호">
             </div>
           </div>
 
           <div class="row justify-content-center my-3 fixed-bottom">
             <div class="col-12">
-              <div class="btn w-100 fs-3"> 본인인증 </div>
+              <div class="btn w-100 fs-3" onclick="CertBtnClick()"> 본인인증 </div>
             </div>
           </div>
 
@@ -94,6 +93,85 @@
       </div>
     </section>
   </div>
+
+  <!-- user Certification modal -->
+<div class="container-fluid">
+  <div id="modal" class="modal_container d-none">
+      <div id="modal_body" class="modal_body d-none">
+        <div class="container">
+          <section>
+            <div class="wrapper">
+              <button class="modal_close_btn" onclick="modalCloseBtn()">x</button>
+              <div class="row-cols-1 cert_modal">
+                <div class="row my-2"></div>
+                <div class="row justify-content-center my-4">
+                  <div class="col-12 fs-2 text-center">본인인증</div>
+                </div>
+
+                <div class="row my-2"> 
+                  <div class="col-11 align-self-center"> 입력하신 번호로 인증번호를 보내드렸습니다.
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </div>
+                </div>
+
+                <div class="row justify-content-center my-2">
+                  <div class="col-7 my-3">
+                    <input class="form-control" type="text" placeholder="시계아이콘 + 00:00">         
+                  </div>
+                  <div class="col-3 btn fs-3 mt-2" onclick="CertCheckBtnClick()"> 인증 </div>             
+                </div>
+
+                <div class="row">
+                  <div class="col-3">
+                    <div class="resend_btn" onclick="reSend()">&nbsp&nbsp&nbsp&nbsp&nbsp다시 받기</div>
+                  </div>
+                  <div class="col-9"></div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+        </div>            
+    </div>
+  </div>
+</div>
+
+<!-- user Certification result modal -->
+<div class="container-fluid">
+  <div id="modal2" class="modal_container d-none">
+      <div id="modal_body2" class="modal_body d-none">
+        <div class="container">
+          <section>
+            <div class="wrapper">
+              <button class="modal_close_btn" onclick="modalCloseBtn2()">x</button>
+              <div class="row-cols-1 cert_modal">
+                <div class="row my-3"></div>
+                  <div class="row justify-content-center my-4">
+                  <div class="col-12 fs-2 text-center"> &nbsp임시비밀번호 발급</div>
+                </div>
+
+                <div class="row my-3"></div>
+                  <div class="row justify-content-center my-4">
+                  <div class="col-12 fs-2 text-center">임시비밀번호는 &nbsp
+                    TempW &nbsp 입니다.</div>
+                </div>
+
+                <div class="row justify-content-center my-3 fixed-bottom">
+                  <div class="col-12">
+                    <div class="btn w-100 fs-3" onclick="modalCloseBtn2()"> 확인 </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        </div>            
+    </div>
+  </div>
+</div>
 
   <div class="bottom_content container-fluid">
     <h3 style="padding:10px;">기브</h3>
@@ -107,6 +185,38 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+
+    <script>
+      const $modal = document.getElementById("modal");
+      const $modalBody = document.getElementById("modal_body");
+      const $modal2 = document.getElementById("modal2");
+      const $modalBody2 = document.getElementById("modal_body2");
+
+      function CertBtnClick(){
+          $modal.classList.remove('d-none');
+          $modalBody.classList.remove('d-none');
+      }
+
+      function CertCheckBtnClick(){
+          $modal.classList.add('d-none');
+          $modalBody.classList.add('d-none');
+          $modal2.classList.remove('d-none');
+          $modalBody2.classList.remove('d-none');
+      }
+
+      function modalCloseBtn(){
+          $modal.classList.add('d-none');
+          $modalBody.classList.add('d-none');
+      } 
+
+      function modalCloseBtn2(){
+          $modal2.classList.add('d-none');
+          $modalBody2.classList.add('d-none');
+      } 
+
+      //function reSend() {;}
+  
+    </script>
 
 </body>
 
