@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="StyleForm.css" rel="stylesheet">
+
+  <style>
+    a{
+        text-decoration-line: none;
+    }
+
+    section{
+        position: relative;
+        height: 1080;
+    }
+
+    .menufont{
+        font-size: 17px;
+        color: white;
+    }
+
+    .reqfont{
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .infont{
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        color: black;
+    }
+
+    .wrapper{
+        background-color: aquamarine;
+        position: absolute;
+        width: 90%;
+        height: 80%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .inbox{
+        background-color: yellow;
+        width: 90%;
+        height: 80%;
+        border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="container-fluid">
+    <section style="background-image: url(img/mainback_temp.png); background-size: cover;">
+        <div class="row-cols-1"">
+            <div class="row align-items-center">
+                <div class="col-3">
+                    <img src="img/Give_Logo.png" alt="#" width="180" height="180">
+                </div>
+                <div class="col-9">
+                    <div class="row pb-5 align-items-center">
+                        <div class="col-7"></div>
+                        <a class="col-1 menufont" href="Login.html">&nbsp 로그인</a>
+                        <a class="col-1 menufont" href="#">회원가입</a>
+                        <a class="col-1 menufont" href="#">&nbsp&nbsp 문의</a>
+                        <a class="col-1 menufont" href="#">&nbsp 이벤트</a> 
+                        <div class="col-1"></div>
+                    </div>
+                </div>            
+            </div>
+            
+            <div class="row">
+                <div class="col-12 my-5"></div>
+                <div class="col-12 my-5"></div>
+                <div class="col-12 my-5"></div>
+                <div class="col-12 my-5"></div>
+                <div class="col-12 my-5"></div>
+            </div>
+
+            <div class="row justify-content-center justify-content-end">
+                <a class="col-2 reqfont" href="addForm.html">헌혈증 등록</a>
+                <a class="col-2 reqfont" href="donationCard.html">헌혈증 기부</a>
+                <a class="col-2 reqfont" href="#">헌혈증 요청</a>
+            </div>
+
+
+        </div>
+
+    </section>
+</div>
+
+<div class="container-fluid">
+    <section>
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-6">
+                    <a class="col-2 infont" href="#"> 공지사항 </a>
+                </div>
+                <div class="col-5">
+                    <a class="col-12 infont mb-5" href="#"> 이벤트 </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container-fluid">
+    <section style="background-color: bisque;">
+        <div class="wrapper">
+            <div class="row-cols-1">
+
+                <div style="text-align: center;" class="col-12">
+                    <img src="img/Give_Logo.png" alt="#" width="420" height="420">
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-8 inbox infont">
+                       기브 소개
+                    </div>        
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="container-fluid">
+    <section style="background-color: azure;">
+        <div class="wrapper">
+            <div class="row justify-content-center">
+                <div class="col-8 inbox infont">
+                   레드박스 소개
+                </div>        
+
+            </div>
+
+        </div>
+        
+    </section>
+</div>
+
+    <div class="bottom_content container-fluid">
+        <h3 style="padding:10px;">기브</h3>
+        <button class="inline_content customer_center_btn">헌혈의 집 찾기</button>
+        <button class="inline_content customer_center_btn">고객센터</button>
+        <button class="inline_content customer_center_btn">레드커넥트</button><br><br>
+        <p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p>
+        <p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
