@@ -7,10 +7,10 @@
         <style>
             .tier-container{
                 width:50%;
-                height:40%;
+                height:50%;
                 margin-top:100px;
                 margin-bottom:100px;
-                background-color:skyblue;
+                background-color:transparent;
             }
         </style>
     </head>
@@ -28,11 +28,26 @@
 
         <div class="container">
             <div class="container tier-container">
-                <div class="row h4" style="margin:5px;">
+                <div class="h4" style= "background-color:transparent; width:100%; height:10%; margin:0">
                     마이페이지
                 </div>
-                <div>
+                <div class="row align-items-center justify-content-center" style="background-color:rgb(184, 184, 184); height:45%;">
+                    <div class="col-3"><button class="menu-btn">give</button></div>
+                    <div class="col-4"><label>신영운님</label><br>티어</div>
+                    <div class="col-5">
+                        <label>다음 티어까지 4개 남았어요!</label><br><br>
+                        <div style="width:80%; height:20px; background-color:white;"></div>
+                        <button style="margin-left:130px; border:none; background-color:transparent;">기부하기</button>
+                    </div>
+                   
+                </div>
 
+                <div class="row align-items-center justify-content-center" style="background-color:rgb(234, 234, 234); height:55%;">
+                    <div class="col-3" style="text-align:center; margin:0 auto">등록된 헌혈증 수<br><br>5개</div>
+                    <div class="col-3" style="text-align:center;">총 기부개수<br><br>8개</div>
+                    <div class="col-3" style="text-align:center;">개인 기부<br><br>4개</div>
+                    <div class="col-3" style="text-align:center;">레드박스 기부<br><br>4개</div>
+                    
                 </div>
             </div>
         </div>
