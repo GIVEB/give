@@ -1,12 +1,9 @@
 package ten.give.web.form;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
 import ten.give.common.enums.Gender;
@@ -37,7 +34,5 @@ public class DonorAddForm {
     @ApiModelProperty(value = "혈액원", required = true, example = "충청북도")
     private DonorCenter donorCenter;
 
-    @ApiModelProperty(value = "로그인 User", required = true, example = "3")
-    private Long userId;
 
 }

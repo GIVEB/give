@@ -3,8 +3,9 @@ package ten.give.web.controller;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import ten.give.domain.exception.form.DeleteResult;
+import ten.give.domain.exception.form.ResultForm;
 import ten.give.web.form.DonorAddForm;
 import ten.give.web.form.DonorCardInfoForm;
 import ten.give.web.form.DonorUpdateForm;
@@ -74,8 +75,8 @@ public class DonorCardController {
             @ApiResponse(code=200, message="성공")
     })
     @PostMapping
-    public DonorCardInfoForm addCard(@RequestBody DonorAddForm form){
-        return cardService.addCard(form);
+    public DonorCardInfoForm addCard(@RequestBody DonorAddForm form, Authentication authentication){
+        return cardService.addCard(form,authentication);
     }
 
     @ApiOperation(
@@ -94,7 +95,7 @@ public class DonorCardController {
             @ApiResponse(code=200, message="성공")
     })
     @DeleteMapping("/{cardId}")
-    public DeleteResult deleteCard(@PathVariable Long cardId){
+    public ResultForm deleteCard(@PathVariable Long cardId){
        return cardService.deleteCard(cardId);
     }
 
@@ -173,9 +174,36 @@ public class DonorCardController {
             @ApiResponse(code=200, message="성공")
     })
     @GetMapping("/list/{userId}")
-    public Map<String,List<DonorCardInfoForm>> getCardListByUserId(@PathVariable Long userId){
+    public Map<String,List<DonorCardInfoForm>> getCardListByUserId(@PathVariable Long userId, Authentication authentication){
+
+        if (Long.valueOf(authentication.getName()) != 1L){
+            throw new IllegalArgumentException("관리자가 아닙니다.");
+        }
+
         Map<String,List<DonorCardInfoForm>> result = cardService.getCardListByUserId(userId);
         return result;
+    }
+
+    @ApiOperation(
+            value = "로그인 한 user_id로 DonorCard list 보기",
+            notes = "user_id [ 로그인 ID ] 로 Donor Card list 보기<br>" +
+                    "[ EX ] URL : http://localhost:8080/donorcards/list")
+    @ApiImplicitParam(
+            name = "authentication",
+            value = "authentication : 로그인 유저",
+            required = true,
+            dataType = "Long",
+            defaultValue = "None"
+    )
+    @ApiResponses({
+            @ApiResponse(code=200, message="성공")
+    })
+    @GetMapping("/list")
+    public Map<String,List<DonorCardInfoForm>> getCardListByUserId(Authentication authentication){
+
+        Map<String,List<DonorCardInfoForm>> result = cardService.getCardListByUserId(Long.valueOf(authentication.getName()));
+        return result;
+
     }
 
 }

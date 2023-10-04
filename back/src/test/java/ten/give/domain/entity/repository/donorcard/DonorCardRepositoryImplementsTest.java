@@ -4,10 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import ten.give.common.enums.DonorKind;
-import ten.give.common.enums.Gender;
+import ten.give.common.enums.DonorCenter;
 import ten.give.domain.entity.donorcard.DonorCard;
+import ten.give.domain.entity.repository.account.AccountRepository;
 import ten.give.domain.entity.repository.user.UserRepository;
+import ten.give.domain.entity.user.Account;
 import ten.give.domain.entity.user.User;
 
 import java.time.LocalDate;
@@ -26,12 +27,24 @@ class DonorCardRepositoryImplementsTest {
     DonorCardRepository donorRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    AccountRepository accountRepository;
 
     @Test
     void crud(){
-
-        User user = new User().builder().name("test").email("test@test.com").password("test").build();
-
+        Account account = new Account().builder()
+                .email("test@gmail.com").password("test").build();
+        accountRepository.saveAccount(account);
+        User user = new User().builder()
+                .account(account)
+                .name("test")
+                .phone("010-xxx-xxx")
+                .Address("chungju")
+                .Address_detail("KNUT")
+                .birth_year("1994")
+                .birth_month("02")
+                .birth_day("11")
+                .build();
         userRepository.saveUser(user);
 
         DonorCard donorCard = new DonorCard().builder()
@@ -39,7 +52,7 @@ class DonorCardRepositoryImplementsTest {
                 .gender(M)
                 .birth(LocalDate.of(1994,02,11))
                 .donorDate(LocalDate.of(2023,9,11))
-                .donorCenter("seoul")
+                .donorCenter(DonorCenter.CHUNGNAM)
                 .kind(WHOLE)
                 .user(user)
                 .build();
@@ -65,7 +78,7 @@ class DonorCardRepositoryImplementsTest {
                 .gender(M)
                 .birth(LocalDate.of(1994,02,11))
                 .donorDate(LocalDate.of(2023,9,11))
-                .donorCenter("seoul test")
+                .donorCenter(DonorCenter.CHUNGNAM)
                 .kind(PLATELETS)
                 .user(user)
                 .build();
@@ -76,7 +89,7 @@ class DonorCardRepositoryImplementsTest {
                 .gender(F)
                 .birth(LocalDate.of(1994,02,11))
                 .donorDate(LocalDate.of(2023,9,11))
-                .donorCenter("seoul testB")
+                .donorCenter(DonorCenter.GYEONGBUK)
                 .kind(PLASMA)
                 .user(user)
                 .build();

@@ -1,6 +1,7 @@
 package ten.give.domain.entity.repository.user;
 
 import ten.give.domain.entity.user.User;
+import ten.give.web.form.UserInfoForm;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ public interface UserRepository {
 
     User saveUser(User user);
 
-    void updateUser(Long userId, User updateParam);
+    void updateUser(Long userId, UserInfoForm updateParam);
 
     void deleteUserByUserId(Long userId);
 

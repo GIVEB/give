@@ -2,6 +2,7 @@ package ten.give.web.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ten.give.domain.entity.donorcard.DonorCard;
@@ -9,7 +10,7 @@ import ten.give.domain.entity.repository.donorcard.DonorCardRepository;
 import ten.give.domain.entity.repository.user.UserRepository;
 import ten.give.domain.entity.user.User;
 import ten.give.domain.exception.NoSuchTargetException;
-import ten.give.domain.exception.form.DeleteResult;
+import ten.give.domain.exception.form.ResultForm;
 import ten.give.web.form.DonorAddForm;
 import ten.give.web.form.DonorCardInfoForm;
 import ten.give.web.form.DonorUpdateForm;
@@ -50,8 +51,8 @@ public class DonorCardService {
 
     }
 
-    public DonorCardInfoForm addCard(DonorAddForm form) {
-        Optional<User> findUser = userRepository.findUserByUserId(form.getUserId());
+    public DonorCardInfoForm addCard(DonorAddForm form, Authentication authentication) {
+        Optional<User> findUser = userRepository.findUserByUserId(Long.valueOf(authentication.getName()));
         if (!findUser.isEmpty()){
             DonorCard donorCard = DonorCard.buildDonorCard(form, findUser.get());
             log.info("{}" ,donorCard.getName());
@@ -63,17 +64,31 @@ public class DonorCardService {
 
     }
 
-    public DeleteResult deleteCard(Long cardId) {
+    public ResultForm deleteCard(Long cardId) {
         Optional<DonorCard> cardByCardId = cardRepository.findCardByCardId(cardId);
         if (!cardByCardId.isEmpty()){
             cardRepository.deleteCardByCardId(cardId);
-            return new DeleteResult(true);
+            return new ResultForm(true,"삭제 성공");
         }
 
-        throw new NoSuchTargetException("게시물이 존재하지 않습니다.");
+        return new ResultForm(false,"게시물이 존재하지 않습니다.");
 
     }
 
+    public ResultForm deleteCardsByUserId(Long userId){
+        List<DonorCard> result = cardRepository.getCardListByUserId(userId);
+
+        if (result.isEmpty()){
+            return new ResultForm(false, "삭제할 것이 존재하지 않습니다.");
+        }
+
+        for (DonorCard card : result) {
+            cardRepository.deleteCardByCardId(card.getCardId());
+        }
+
+        return new ResultForm(true, "삭제완료");
+
+    }
 
     public DonorCardInfoForm updateCard(Long cardId, DonorUpdateForm form) {
         Optional<DonorCard> cardByCardId = cardRepository.findCardByCardId(cardId);
