@@ -58,7 +58,7 @@ public class QDonorCard extends EntityPathBase<DonorCard> {
 
     public QDonorCard(Class<? extends DonorCard> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.user = inits.isInitialized("user") ? new ten.give.domain.entity.user.QUser(forProperty("user")) : null;
+        this.user = inits.isInitialized("user") ? new ten.give.domain.entity.user.QUser(forProperty("user"), inits.get("user")) : null;
     }
 
 }

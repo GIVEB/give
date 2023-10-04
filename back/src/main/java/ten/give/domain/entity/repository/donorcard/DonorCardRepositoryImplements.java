@@ -23,6 +23,7 @@ public class DonorCardRepositoryImplements implements DonorCardRepository{
 
     @Override
     public void updateCard(Long cardId, DonorUpdateForm updateParam, User user) {
+
         Optional<DonorCard> findCard = jpaRepository.findById(cardId);
 
         if (!findCard.isEmpty()){
@@ -35,6 +36,7 @@ public class DonorCardRepositoryImplements implements DonorCardRepository{
             donorCard.setDonorDate(updateParam.getDonorDate());
             donorCard.setGender(updateParam.getGender());
             donorCard.setUser(user);
+
         }
 
     }

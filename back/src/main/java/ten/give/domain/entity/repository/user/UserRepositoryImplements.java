@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ten.give.domain.entity.user.User;
+import ten.give.web.form.UserInfoForm;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +26,7 @@ public class UserRepositoryImplements implements UserRepository {
 
     @Override
     @Transactional
-    public void updateUser(Long userId, User updateParam) {
+    public void updateUser(Long userId, UserInfoForm updateParam) {
         Optional<User> target = jpaRepository.findById(userId);
 
         log.info("updateParam : {} ", updateParam.getName());
@@ -33,10 +34,13 @@ public class UserRepositoryImplements implements UserRepository {
         if (!target.isEmpty()) {
             User targetUser = target.get();
             log.info("targetUser : {} ", targetUser.getName());
-            targetUser.setName(targetUser.getName());
-            targetUser.setEmail(targetUser.getEmail());
-            targetUser.setPassword(targetUser.getPassword());
-            jpaRepository.save(targetUser);
+            targetUser.setName(updateParam.getName());
+            targetUser.setAddress(updateParam.getAddress());
+            targetUser.setAddress_detail(updateParam.getAddress_detail());
+            targetUser.setPhone(updateParam.getPhone());
+            targetUser.setBirth_year(updateParam.getBirth_year());
+            targetUser.setBirth_month(updateParam.getBirth_month());
+            targetUser.setBirth_day(updateParam.getBirth_day());
         }
     }
 
@@ -57,6 +61,10 @@ public class UserRepositoryImplements implements UserRepository {
 
     @Override
     public Optional<User> findUserByEmail(String email) {
-        return jpaRepository.findByEmail(email);
+        Optional<User> byEmail = jpaRepository.findByEmail(email);
+        if (!byEmail.isEmpty()){
+            log.info("{}",byEmail.get().getName());
+        }
+        return byEmail;
     }
 }

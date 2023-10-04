@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import ten.give.web.form.UserInfoForm;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -35,16 +36,36 @@ public class User {
     @Column(length = 21)
     private String name;
 
-    @Email
-    @NotNull
-    @NotEmpty
-    @Column(length = 150)
-    private String email;
+    private String birth_year;
 
-    @NotNull
-    @NotEmpty
-    @Column(length = 150)
-    private String password;
+    private String birth_month;
+
+    private String birth_day;
+
+    private String phone;
+
+    private String Address;
+
+    private String Address_detail;
+
+    private LocalDate joinDate;
+
+
+    public UserInfoForm userTransferToUserInfo() {
+        UserInfoForm userInfoForm = new UserInfoForm();
+        userInfoForm.setName(this.name);
+        userInfoForm.setBirth_year(this.birth_year);
+        userInfoForm.setBirth_month(this.birth_month);
+        userInfoForm.setBirth_day(this.birth_day);
+        userInfoForm.setPhone(this.phone);
+        userInfoForm.setAddress(this.getAddress());
+        userInfoForm.setAddress_detail(this.getAddress_detail());
+        return userInfoForm;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "accountId")
+    private Account account;
 
     public User() {
 

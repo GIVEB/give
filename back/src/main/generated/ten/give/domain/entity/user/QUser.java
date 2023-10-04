@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,26 +18,49 @@ public class QUser extends EntityPathBase<User> {
 
     private static final long serialVersionUID = -1218842591L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QUser user = new QUser("user");
 
-    public final StringPath email = createString("email");
+    public final QAccount account;
+
+    public final StringPath Address = createString("Address");
+
+    public final StringPath Address_detail = createString("Address_detail");
+
+    public final StringPath birth_day = createString("birth_day");
+
+    public final StringPath birth_month = createString("birth_month");
+
+    public final StringPath birth_year = createString("birth_year");
+
+    public final DatePath<java.time.LocalDate> joinDate = createDate("joinDate", java.time.LocalDate.class);
 
     public final StringPath name = createString("name");
 
-    public final StringPath password = createString("password");
+    public final StringPath phone = createString("phone");
 
     public final NumberPath<Long> userId = createNumber("userId", Long.class);
 
     public QUser(String variable) {
-        super(User.class, forVariable(variable));
+        this(User.class, forVariable(variable), INITS);
     }
 
     public QUser(Path<? extends User> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QUser(PathMetadata metadata) {
-        super(User.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QUser(PathMetadata metadata, PathInits inits) {
+        this(User.class, metadata, inits);
+    }
+
+    public QUser(Class<? extends User> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.account = inits.isInitialized("account") ? new QAccount(forProperty("account")) : null;
     }
 
 }

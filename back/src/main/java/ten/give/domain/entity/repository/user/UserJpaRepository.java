@@ -11,8 +11,7 @@ import java.util.Optional;
 @Component
 public interface UserJpaRepository  extends JpaRepository<User,Long> {
 
-    @Query(value = "select u " +
-            "from User u " +
-            "where u.email = :email")
+    @Query(value = "select u from User u where u.account.email = :email")
     Optional<User> findByEmail(@Param("email") String email);
+
 }

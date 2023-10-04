@@ -9,6 +9,7 @@ import ten.give.domain.entity.user.User;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+import static ten.give.domain.entity.user.QAccount.*;
 import static ten.give.domain.entity.user.QUser.*;
 
 @Repository
@@ -22,14 +23,14 @@ public class UserJpaQueryRepository {
 
     public List<User> findUserByEmail(String email) {
             return query.select(user)
-                    .from(user)
+                    .from(user,account)
                     .where(eqEmail(email))
                     .fetch();
     }
 
     private BooleanExpression eqEmail(String email){
         if (StringUtils.hasText(email)){
-            return user.email.eq(email);
+            return account.email.eq(email);
         }
         return null;
     }

@@ -12,11 +12,11 @@ import ten.give.common.enums.Gender;
 
 import java.time.LocalDate;
 
-@ApiModel(value = "DonorCard 정보")
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
+@ApiModel(value = "DonorCard 정보")
 public class DonorCardInfoForm {
 
     @ApiModelProperty(value="카드 ID", example = "2")
