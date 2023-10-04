@@ -232,3 +232,8 @@ footer {
   .d-inline-block {
     display: inline;
   }
+
+  .transparent-bg-btn {
+    background-color: transparent;
+    border:none;
+  }
