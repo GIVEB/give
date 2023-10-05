@@ -37,8 +37,12 @@
         transform: translate(-50%, -50%);
     }
 
-    .tempbox{
+    .boxmiddle{
         background-color: rgb(207, 207, 207);
+    }
+
+    .boxend{
+        background-color: gray;
     }
 
   </style>
@@ -58,44 +62,33 @@
 <div class="container-fluid">
     <section>
         <div class="wrapper">
-            <div class="row">
-                <div class="row">
-                    <div class="col-3 infont">이벤트</div>
-                    <div class="col-8"></div>
+            <div class="row-cols-1">
+                <div class="col">
+                    <p class="fs-6">FAQ</p>
                 </div>
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
+                <div class="col">
+                    <div class="row">
+                        <a class="col-3 infont" href="Notice.html">FAQ 제목</a>
+                        <div class="col-4"></div>
+                        <div class="col-5 row-cols-1">
+                            <p class="col-12 text-end fs-4">작성자 : 000 작성일자 : 2023.10.04</p>
+                        </div>
+                    </div>                  
+                </div>
+
+                <div class="col boxmiddle mt-3">
+                    <div class="row">
+                        <div class="col-12 my-3"></div>
+                        <div class="col-12 my-5"></div>
+                        <div class="col-12 my-5"></div>
                     </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
-
-                <div class="row my-2"><p><hr></p></div>
-
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
+                    <p class="infont text-center">FAQ 내용</p>
+                    <div class="row">
+                        <div class="col-12 my-5"></div>
+                        <div class="col-12 my-5"></div>
+                        <div class="col-12 my-4"></div>
                     </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
-
-                <div class="row my-2"><p><hr></p></div>
-
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
-                    </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
+                </div>                
                 
             </div>
         </div>
