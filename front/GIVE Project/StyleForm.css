@@ -237,3 +237,15 @@ footer {
     background-color: transparent;
     border:none;
   }
+
+  .signup-proced{
+    margin-top: 10px;
+    width:90%;
+    height:80%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.trans-bg{
+    background-color:transparent;
+}
