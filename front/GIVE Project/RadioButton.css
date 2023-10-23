@@ -1,0 +1,72 @@
+
+.select input[type=radio]{
+  display: none;
+}
+
+.select input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.select input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+
+.select input[type=radio]:checked+label{
+  background-color: red;
+  color: #fff;
+}
+
+.select2 input[type=radio]{
+  display: none;
+}
+
+.select2 input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  width: 75px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.select2 input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+
+.select2 input[type=radio]:checked+label{
+  background-color: red;
+  color: #fff;
+}
+
+.select4 input[type=radio]{
+  display: none;
+}
+
+.select4 input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 24px;
+  width: 110px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.select4 input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+
+.select4 input[type=radio]:checked+label{
+  background-color: red;
+  color: #fff;
+}

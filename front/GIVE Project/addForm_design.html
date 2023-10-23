@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="StyleForm.css" rel="stylesheet">
+  <link href="RadioButton.css" rel="stylesheet">
+
+  <style>
+
+    input{
+      border: none;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    section {
+      position: relative;
+      height: 1080px;
+    }
+
+    div.header{
+      position: relative;
+      height: 140px;
+    }
+
+    .form_font{
+      text-align: center;
+      font-size: 17px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .menufont{
+      text-decoration-line: none;
+      font-size: 17px;
+      font-weight: bold;
+      color: black;
+      min-width: 100px;
+      text-align: center;
+      float: right;
+    }
+
+    .dor_frame {
+      background-color: yellow;
+      position: absolute;
+      width: 630px;
+      height: 380px;
+      top: 460px;
+      left: 920px;
+      transform: translate(-50%, -50%);
+      border-radius: 25px;
+    }
+
+    .dor_wrap{
+      position: absolute;
+      background-color: white;
+      height: 40px;
+      width: 310px;
+      top: 305px;
+      left: 1050px;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+    }
+
+    .dor_num{
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 92%;
+      margin-left: 10%;
+    }
+
+    .dor_form{
+      background-color: white;
+      position: absolute;
+      width: 610px;
+      height: 300px;
+      top: 490px;
+      left: 920px;
+      transform: translate(-50%, -50%);
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+
+    .underline{
+      border-bottom: 1px solid;
+    }
+
+  </style>
+
+<body>
+  <section>
+    <div class="header">
+      <div class="row align-items-center">
+        <div class="col-7 ms-5">
+            <img src="img/Main_title.png" alt="#" width="140" height="140">
+        </div>
+        <div class="col-4">
+          <a class="col-1 menufont" href="Event.html">이벤트</a> 
+          <a class="col-1 menufont" href="InQuiry.html">문의</a>
+          <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>        
+        </div>            
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <div class="col-3"></div>
+      <div class="col-5 fs-4 text-center"> 헌혈증 등록</div>
+    </div>
+
+    <div class="row-cols-1">
+      <div class="col">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col ms-5">
+            <img src="img/redbox.png" alt="#" width="380" height="380">
+          </div>
+        </div>
+      </div>
+
+      <!-- 헌혈증 절대 위치로 생성 -->
+      <div class="dor_frame">
+        <div class="row">
+          <div style="font-size: 25px; font-weight: bold;" class="col-4 text-center mt-3"> 헌혈증서 </div>
+        </div>
+      </div> 
+
+      <div class="dor_wrap">
+        <div class="row">
+          <div class="col-3 row-cols-1">
+            <div class="col dor_num mt-2">증서</div>
+            <div class="col dor_num">번호</div>
+          </div>
+          <div class="col-8 row">
+            <input class="col-12 mt-1 underline" type="text" class="form-control" 
+              id="card_id" placeholder="숫자만 입력해주세요">
+          </div>
+        </div>
+      </div>
+
+      <!--input-->
+      <div class="dor_form">
+        <div class="row mb-3 mt-3">
+          <div class="col-5 ms-3">
+            <div class="row mt-3">
+              <label class="col-5 form_font" for="name" class="form-label">성&nbsp&nbsp&nbsp&nbsp&nbsp명:</label>
+              <input class="col-7 underline" type="text" class="form-control" id="name" placeholder=" 성명">
+            </div>
+            <div style="margin-top: 32px;" class="row">
+              <label class="col-5 form_font" for="birth" class="form-label">생년월일:</label>
+              <div class="col-7 underline">
+                <div class="row justify-content-center">
+                  <input class="col-4" type="text" class="form-control" id="birth" placeholder="0000">
+                  -
+                  <input class="col-3" type="text" class="form-control" id="birth" placeholder="00">
+                  -
+                  <input class="col-3" type="text" class="form-control" id="birth" placeholder="00">
+                </div>          
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="row ms-1">
+              <div class="col-4 mt-3 form_font">헌혈종류:</div>
+              <div class="col-7 row">
+                <div class="col-4 select mb-2 me-2">
+                  <input style="display: checked;" type="radio" id="inlineCheckbox1" name="kind" value="option1" checked>
+                  <label for="inlineCheckbox1">전혈</label>
+                </div>
+                <div class="col-6 select2 mb-2">
+                  <input type="radio" id="inlineCheckbox2" name="kind" value="option2">
+                  <label for="inlineCheckbox2">혈소판</label>
+                </div>
+  
+                <div class="col-4 select me-2">
+                  <input type="radio" id="inlineCheckbox3" name="kind" value="option3">
+                  <label for="inlineCheckbox3">혈장</label>
+                </div>
+                <div class="col-6 select4">
+                  <input type="radio" id="inlineCheckbox4" name="kind" value="option4">
+                  <label for="inlineCheckbox4">혈소판혈장</label>
+                </div>
+              </div>      
+            </div>
+
+            <div class="row mt-3 ms-1">
+              <div class="col-4 form_font px-1">성&nbsp&nbsp&nbsp&nbsp&nbsp별:</div>
+              <div class=" col-2 select me-2">
+                <input type="radio" name="gender" id="male" value="m" checked>
+                <label for="male"> 남 </label>
+              </div>
+              <div class="col-2 select">
+                <input type="radio" name="gender" id="female" value="f">
+                <label for="female"> 여 </label>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: left;" class="ms-5 mt-4 mb-2 form_font">
+            <p>사랑의 헌혈에 동참하여 생명 나눔을 몸소 실천한 귀하에게<br> 깊은 존경과 감사의 마음을 담아 이 증서를 드립니다.</p>
+          </div>
+
+          <div class="row ms-0">
+            <div class="col-6 row">
+              <label class="col-5 form_font" for="donordate" class="form-label">헌혈일자:</label>
+              <div class="col-7 underline">
+                <div class="row justify-content-center">
+                  <input class="col-4" type="text" class="form-control" id="donordate" placeholder="0000">
+                  -
+                  <input class="col-3" type="text" class="form-control" id="donordate" placeholder="00">
+                  -
+                  <input class="col-3" type="text" class="form-control" id="donordate" placeholder="00">
+                </div>          
+              </div>
+            </div>
+            <div style="margin-top: 16px; margin-left: -2px;" class="row">
+              <label class="col-2 form_font" for="donorcenter" class="form-label">혈액원명:</label>  
+              <input class="col-5 ms-2 underline" type="text" class="form-control" id="donorcenter" placeholder=" 혈액원명">
+              <div style="font-size: 19px; font-weight: bold; text-align: right;" class="col-4">보건복지부장관
+                <span style="font-size: 12px;">&nbsp&nbsp(인)</span></div>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </section>
+
+  
+
+  <footer class="container-fluid footer">
+    <h3 style="padding:10px;">기브</h3>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-2"><button class="customer-center-btn">헌혈의 집 찾기</button></div>
+        <div class="col-2"><button class="customer-center-btn">고객센터</button></div>                
+        <div class="col-2"><button class="customer-center-btn">레드커넥트</button></div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9" style="text-align:left;"><p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9" style="text-align:left;"><p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p></div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
