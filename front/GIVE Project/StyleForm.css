@@ -249,3 +249,13 @@ footer {
 .trans-bg{
     background-color:transparent;
 }
+
+.menufont{
+  text-decoration-line: none;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  min-width: 100px;
+  text-align: center;
+  float: right;
+}
