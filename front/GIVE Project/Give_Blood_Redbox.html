@@ -22,7 +22,7 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                color: gray;
+                color:gray;
                 }
             
             .icon>div>img {
@@ -36,12 +36,12 @@
                 }
                 
             .content-box {
-                background-color: rgb(165, 165, 165);
-                width:100%;
-                height:100%;
+                width:450px;
+                height:450px;
             }
             
         </style>
+        
     </head>
 
     <body>
@@ -68,32 +68,79 @@
 
                 <div class="col-6 align-items-center justify-content-center">
                     <div class="row" style="width:100%; height:100%;">
-                        <div class="col-12 content-box">
-                            <div class="row">
-                                <div class="col-11" style="text-align:center; margin:20px;">총 기부개수</div>
-                            </div>
-                            <div class="row ">
-                                <div class="col-11" style="text-align:center; margin:20px;">1000</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3"></div>
-                                <div class="col-5">
-                                    나의 기부개수<br>
-                                    17
-                                </div>
-                                <div class="col-4">
-                                    기여도<br>
-                                    1.47%
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-11" style="text-align:center; margin:20px;">
-                                    소중한 기부 감사합니다
-                                </div>
-                            </div>
-                            <div class="row">
-                                <button class="transparent-bg-btn">확인</button>
-                            </div>
+                        <div class="content-box">
+                                
+                                <!--<div class="row">
+                                        <div class="col-11" style="text-align:center; margin:20px;">총 기부개수</div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-11" style="text-align:center; margin:20px;">1000</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-5">
+                                            나의 기부개수<br>
+                                            17
+                                        </div>
+                                        <div class="col-4">
+                                            기여도<br>
+                                            1.47%
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-11" style="text-align:center; margin:20px;">
+                                            소중한 기부 감사합니다
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <button class="transparent-bg-btn">확인</button>
+                                    </div>
+                                </div>-->
+                            
+                            <canvas id="diagram" width="450" height="450">
+                            <script>
+                                var c = document.getElementById("diagram");
+                                var ctx = c.getContext("2d");
+                                var totalDonationNum = 14;
+                                var myDonationNum = 23;
+                                var contributionNum = 1154;
+                                
+                                //contribution circle
+                                ctx.beginPath();
+                                ctx.arc(300,250,75,0,2*Math.PI);
+                                ctx.fillStyle='rgba(254, 201, 201, 0.989)';
+                                ctx.fill();
+                                
+                                ctx.beginPath();
+                                ctx.fillStyle='white';
+                                ctx.fillText("기여도",300,250);
+                                ctx.fillText("fefe",300,260);
+                                ctx.fill();
+                                
+                                //my donation circle
+                                ctx.beginPath();
+                                ctx.arc(120,250,120,0,2*Math.PI);
+                                ctx.fillStyle='#FF8989';
+                                ctx.fill();
+
+                                ctx.beginPath();
+                                ctx.fillStyle='white';
+                                ctx.fillText("나의 기부 개수",120,250);
+                                ctx.fill();
+
+                                //total donation circle
+                                ctx.beginPath();
+                                ctx.arc(225, 100, 90, 0, 2 * Math.PI);
+                                ctx.fillStyle='#FF6666';
+                                ctx.fill();
+
+                                ctx.beginPath();
+                                ctx.fillStyle='white';
+                                ctx.font = '24px Annonymous Pro';
+                                ctx.fillText("총 기부 개수",161,100);
+                                ctx.fillText(number,191,130);
+                                ctx.fill();
+                            </script>
                         </div>
                     </div>
                 </div>
