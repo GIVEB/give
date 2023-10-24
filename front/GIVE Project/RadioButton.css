@@ -6,7 +6,7 @@
 .select input[type=radio]+label{
   display: inline-block;
   cursor: pointer;
-  height: 24px;
+  height: 28px;
   width: 50px;
   text-align: center;
   font-weight: bold;
@@ -19,8 +19,9 @@
 }
 
 .select input[type=radio]:checked+label{
-  background-color: red;
+  background-color: #FF4747;
   color: #fff;
+  border-radius: 5px;
 }
 
 .select2 input[type=radio]{
@@ -30,7 +31,7 @@
 .select2 input[type=radio]+label{
   display: inline-block;
   cursor: pointer;
-  height: 24px;
+  height: 28px;
   width: 75px;
   text-align: center;
   font-weight: bold;
@@ -43,8 +44,9 @@
 }
 
 .select2 input[type=radio]:checked+label{
-  background-color: red;
+  background-color: #FF4747;
   color: #fff;
+  border-radius: 5px;
 }
 
 .select4 input[type=radio]{
@@ -54,7 +56,7 @@
 .select4 input[type=radio]+label{
   display: inline-block;
   cursor: pointer;
-  height: 24px;
+  height: 28px;
   width: 110px;
   text-align: center;
   font-weight: bold;
@@ -67,6 +69,7 @@
 }
 
 .select4 input[type=radio]:checked+label{
-  background-color: red;
+  background-color: #FF4747;
   color: #fff;
+  border-radius: 3px;
 }
