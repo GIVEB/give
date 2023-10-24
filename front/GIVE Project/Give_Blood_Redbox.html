@@ -36,109 +36,174 @@
                 }
                 
             .content-box {
-                width:450px;
-                height:450px;
+                width:1000px;
+                height:700px;
             }
             
+            #bubbleDeco {
+                position:absolute;
+                z-index:-1;
+            }
+
+            #diagram {
+                position:absolute;
+                z-index:-1;
+            }
+
+            #redBox {
+                position:absolute;
+                top:300px;
+            }
         </style>
         
     </head>
 
     <body>
-        <header class="container-fluid header">
-            <div class="row">
-                <div class="col-7"><button class="menu-btn">give</button></div>
-                <div class="col-1"><button class="mypage-btn">로그인</button></div>
-                <div class="col-1"><button class="mypage-btn">회원가입</button></div>
-                <div class="col-1"><button class="mypage-btn">문의</button></div>
-                <div class="col-2"><button class="mypage-btn">이벤트</button></div>
+        <div class="header">
+            <div class="row align-items-center">
+              <div class="col-7 ms-5">
+                  <img src="img/Main_title.png" alt="#" width="140" height="140">
+              </div>
+              <div class="col-4">
+                <a class="col-1 menufont" href="Event.html">이벤트</a> 
+                <a class="col-1 menufont" href="InQuiry.html">문의</a>
+                <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>        
+              </div>            
             </div>
-        </header>
+        </div>
 
-        <div class="container">
-            <div class="row" style="margin:40px;">
-                <div class="col-6 d-flex align-items-center justify-content-center">
+        <canvas id="bubbleDeco"></canvas>
+        <script>
+            var b = document.getElementById("bubbleDeco");
+            var bubble = b.getContext("2d");
+            b.width = window.innerWidth;
+            b.height = window.innerHeight;
+            
+            //left side bubble
+            bubble.beginPath();
+            bubble.arc(0,300,150,0,Math.PI*2);
+            bubble.fillStyle="rgba(254,0,0,0.3)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(55,435,22,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.7)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(88,460,15,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.6)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(60,480,8,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(80,500,5,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+            //right side bubble
+            bubble.beginPath();
+            bubble.arc(b.width,520,100,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4))";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-55,425,22,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.7)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-88,400,15,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.6)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-60,380,8,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-80,360,5,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+        </script>
+          
+        <div class="container" style="width:100%; margin:0px;">
+            <div class="row" style="margin:0px;">
+                <div class="col-2"></div>
+                <div class="col-2 align-items-center justify-content-center">
                     <div class="row">
-                      <div class="col-12 icon">
-                        <div><img src="img/redbox.png" alt="#"></div>
-                      </div>
-                      <div class="col-12 desc" style="text-align:center;">레드박스</div>
+                        <div class="col-12 icon">
+                        <div>
+                            <img  id="redBox" style="width:255px; height:255px; object-fit:cover;" src="img/redbox.png" alt="#">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4><label style="text-align:center; margin-top:450px; width:100%; color:gray">레드 박스</label></h4>
                     </div>
                 </div>
 
-                <div class="col-6 align-items-center justify-content-center">
+                <div class="col-8 align-items-center justify-content-center">
                     <div class="row" style="width:100%; height:100%;">
                         <div class="content-box">
-                                
-                                <!--<div class="row">
-                                        <div class="col-11" style="text-align:center; margin:20px;">총 기부개수</div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-11" style="text-align:center; margin:20px;">1000</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-3"></div>
-                                        <div class="col-5">
-                                            나의 기부개수<br>
-                                            17
-                                        </div>
-                                        <div class="col-4">
-                                            기여도<br>
-                                            1.47%
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-11" style="text-align:center; margin:20px;">
-                                            소중한 기부 감사합니다
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <button class="transparent-bg-btn">확인</button>
-                                    </div>
-                                </div>-->
-                            
-                            <canvas id="diagram" width="450" height="450">
+                            <canvas id="diagram" width="1000" height="1000">
                             <script>
                                 var c = document.getElementById("diagram");
                                 var ctx = c.getContext("2d");
                                 var totalDonationNum = 14;
                                 var myDonationNum = 23;
                                 var contributionNum = 1154;
+                                var fontSize = 24;
                                 
                                 //contribution circle
                                 ctx.beginPath();
-                                ctx.arc(300,250,75,0,2*Math.PI);
+                                ctx.arc(630,460,130,0,2*Math.PI);
                                 ctx.fillStyle='rgba(254, 201, 201, 0.989)';
                                 ctx.fill();
                                 
                                 ctx.beginPath();
                                 ctx.fillStyle='white';
-                                ctx.fillText("기여도",300,250);
-                                ctx.fillText("fefe",300,260);
+                                ctx.font = fontSize.toString()+'px Annonymous Pro';
+                                var txt1 = "기여도";
+                                var num1 = 12;
+                                ctx.fillText(txt1,630-(ctx.measureText(txt1).width/2),460);
+                                ctx.fillText(num1,630-(ctx.measureText(num1).width/2),490);
                                 ctx.fill();
                                 
                                 //my donation circle
                                 ctx.beginPath();
-                                ctx.arc(120,250,120,0,2*Math.PI);
+                                ctx.arc(340,410,175,0,2*Math.PI);
                                 ctx.fillStyle='#FF8989';
                                 ctx.fill();
 
                                 ctx.beginPath();
                                 ctx.fillStyle='white';
-                                ctx.fillText("나의 기부 개수",120,250);
+                                ctx.font = fontSize.toString()+'px Annonymous Pro';
+                                var txt2 = "나의 기부 개수";
+                                var num2 = 3214;
+                                ctx.fillText(txt2,340-(ctx.measureText(txt2).width/2),410);
+                                ctx.fillText(num2,340-(ctx.measureText(num2).width/2),440);
                                 ctx.fill();
 
                                 //total donation circle
                                 ctx.beginPath();
-                                ctx.arc(225, 100, 90, 0, 2 * Math.PI);
+                                ctx.arc(480, 220, 150, 0, 2 * Math.PI);
                                 ctx.fillStyle='#FF6666';
                                 ctx.fill();
 
                                 ctx.beginPath();
                                 ctx.fillStyle='white';
-                                ctx.font = '24px Annonymous Pro';
-                                ctx.fillText("총 기부 개수",161,100);
-                                ctx.fillText(number,191,130);
+                                ctx.font = fontSize.toString()+'px';
+                                var txt3 = "총 기부 개수";
+                                var num3 = 123;
+                                ctx.fillText(txt3,480-(ctx.measureText(txt3).width/2),220);
+                                ctx.fillText(num3,480-(ctx.measureText(num3).width/2),250);
                                 ctx.fill();
                             </script>
                         </div>
