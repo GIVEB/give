@@ -16,7 +16,7 @@ header {
 
 footer {
     height:170px;
-    background-color:rgb(207, 207, 207);
+    background-color:#F0F0F0;
     text-align: center;
 }
 
@@ -48,7 +48,7 @@ footer {
 .customer-center-btn{
     
     height:40px;
-    background-color: rgb(207, 207, 207);
+    background-color: #F0F0F0;
     border:none;
     cursor:pointer;
     font-size:17px;
@@ -237,3 +237,25 @@ footer {
     background-color: transparent;
     border:none;
   }
+
+  .signup-proced{
+    margin-top: 10px;
+    width:90%;
+    height:80%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.trans-bg{
+    background-color:transparent;
+}
+
+.menufont{
+  text-decoration-line: none;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  min-width: 100px;
+  text-align: center;
+  float: right;
+}

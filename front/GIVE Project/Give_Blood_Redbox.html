@@ -1,0 +1,263 @@
+<html>
+    <head>
+        <link href="StyleForm.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+        <style>
+            .icon {
+                width: 100%;
+                height: 90%;
+                text-align: center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                }
+            .icon>div {
+                width: 90%;
+                height: 90%;
+                border-radius: 50%;
+                background-color:transparent;
+                text-align: center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color:gray;
+                }
+            
+            .icon>div>img {
+                width: 350px;
+                height: 350px;
+                }
+            
+            .selector {
+                width: 80%;
+                height: 80%;
+                }
+                
+            .content-box {
+                width:1000px;
+                height:700px;
+            }
+            
+            #bubbleDeco {
+                position:absolute;
+                z-index:-1;
+            }
+
+            #diagram {
+                position:absolute;
+                z-index:-1;
+            }
+
+            #redBox {
+                position:absolute;
+                top:300px;
+            }
+
+            #button_container {
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                display: flex;
+                
+                margin: 0 auto;
+            }
+
+            #confirm_btn {
+                background-color: #FF4D4D;
+                border-radius: 20px;
+                color: white;
+                margin-bottom:50px;
+                width:100px;
+                height:80px;
+                border:none;
+                box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+            }
+        </style>
+        
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="row align-items-center" style="width:100%;">
+              <div class="col-7 ms-5">
+                  <img src="img/Main_title.png" alt="#" width="140" height="140">
+              </div>
+              <div class="col-4">
+                <a class="col-1 menufont" href="Event.html">이벤트</a> 
+                <a class="col-1 menufont" href="InQuiry.html">문의</a>
+                <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>        
+              </div>            
+            </div>
+        </div>
+
+        <canvas id="bubbleDeco"></canvas>
+        <script>
+            var b = document.getElementById("bubbleDeco");
+            var bubble = b.getContext("2d");
+            b.width = window.innerWidth;
+            b.height = window.innerHeight;
+            
+            //left side bubble
+            bubble.beginPath();
+            bubble.arc(0,300,150,0,Math.PI*2);
+            bubble.fillStyle="rgba(254,0,0,0.3)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(55,435,22,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.7)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(88,460,15,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.6)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(60,480,8,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(80,500,5,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+            //right side bubble
+            bubble.beginPath();
+            bubble.arc(b.width,520,100,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4))";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-55,425,22,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.7)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-88,400,15,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.6)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-60,380,8,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+            bubble.beginPath();
+            bubble.arc(b.width-80,360,5,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+
+        </script>
+          
+        <div class="container" style="width:100%; margin:0px;">
+            <div class="row" style="margin:0px;">
+                <div class="col-2"></div>
+                <div class="col-2 align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col-12 icon">
+                        <div>
+                            <img  id="redBox" style="width:255px; height:255px; object-fit:cover;" src="img/redbox.png" alt="#">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4><label style="text-align:center; margin-top:450px; width:100%; color:gray">레드 박스</label></h4>
+                    </div>
+                </div>
+
+                <div class="col-8 align-items-center justify-content-center">
+                    <div class="row" style="width:100%; height:100%;">
+                        <div class="content-box">
+                            <canvas id="diagram" width="800" height="700">
+                            <script>
+                                var c = document.getElementById("diagram");
+                                var ctx = c.getContext("2d");
+                                var totalDonationNum = 14;
+                                var myDonationNum = 23;
+                                var contributionNum = 1154;
+                                var fontSize = 24;
+                                
+                                //contribution circle
+                                ctx.beginPath();
+                                ctx.arc(630,460,130,0,2*Math.PI);
+                                ctx.fillStyle='rgba(254, 201, 201, 0.989)';
+                                ctx.fill();
+                                
+                                ctx.beginPath();
+                                ctx.fillStyle='white';
+                                ctx.font = fontSize.toString()+'px Annonymous Pro';
+                                var txt1 = "기여도";
+                                var num1 = 12;
+                                ctx.fillText(txt1,630-(ctx.measureText(txt1).width/2),460);
+                                ctx.fillText(num1,630-(ctx.measureText(num1).width/2),490);
+                                ctx.fill();
+                                
+                                //my donation circle
+                                ctx.beginPath();
+                                ctx.arc(340,410,175,0,2*Math.PI);
+                                ctx.fillStyle='#FF8989';
+                                ctx.fill();
+
+                                ctx.beginPath();
+                                ctx.fillStyle='white';
+                                ctx.font = fontSize.toString()+'px Annonymous Pro';
+                                var txt2 = "나의 기부 개수";
+                                var num2 = 3214;
+                                ctx.fillText(txt2,340-(ctx.measureText(txt2).width/2),410);
+                                ctx.fillText(num2,340-(ctx.measureText(num2).width/2),440);
+                                ctx.fill();
+
+                                //total donation circle
+                                ctx.beginPath();
+                                ctx.arc(480, 220, 150, 0, 2 * Math.PI);
+                                ctx.fillStyle='#FF6666';
+                                ctx.fill();
+
+                                ctx.beginPath();
+                                ctx.fillStyle='white';
+                                ctx.font = fontSize.toString()+'px';
+                                var txt3 = "총 기부 개수";
+                                var num3 = 123;
+                                ctx.fillText(txt3,480-(ctx.measureText(txt3).width/2),220);
+                                ctx.fillText(num3,480-(ctx.measureText(num3).width/2),250);
+                                ctx.fill();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="button_container">
+            <button id="confirm_btn">확인</button>
+        </div>
+
+        <footer class="container-fluid footer">
+            <h3 style="padding:10px;">기브</h3>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-2"><button class="customer-center-btn">헌혈의 집 찾기</button></div>
+                <div class="col-2"><button class="customer-center-btn">고객센터</button></div>                
+                <div class="col-2"><button class="customer-center-btn">레드커넥트</button></div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-9" style="text-align:left;"><p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-9" style="text-align:left;"><p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p></div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
+    </body>
+</html>

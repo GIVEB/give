@@ -20,6 +20,25 @@
         height: 1080;
     }
 
+    .red_wrap{
+        position: relative;
+        left: 20%;
+        width: 200px;
+        height: 200px;
+    }
+
+    .donorBtn{
+        background-color: white;
+        margin: 45px;
+        text-align: center;
+        width: 120px;
+        height: 90px;
+        border-radius: 5px;
+        border: none;
+        cursor:pointer;
+        color: black;
+    }
+
     .menufont{
         font-size: 17px;
         color: white;
@@ -40,20 +59,21 @@
     }
 
     .wrapper{
-        background-color: aquamarine;
         position: absolute;
         width: 90%;
-        height: 80%;
+        height: 90%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    .inbox{
-        background-color: yellow;
-        width: 90%;
-        height: 80%;
+    .donor_wrap{
+        background-color: rgb(207, 207, 207);
         border-radius: 5px;
+    }
+
+    .info_wrap{
+        background-color: white;
     }
 
   </style>
@@ -70,30 +90,14 @@
                 <div class="col-9">
                     <div class="row pb-5 align-items-center">
                         <div class="col-7"></div>
-                        <a class="col-1 menufont" href="Login.html">&nbsp 로그인</a>
-                        <a class="col-1 menufont" href="#">회원가입</a>
-                        <a class="col-1 menufont" href="#">&nbsp&nbsp 문의</a>
-                        <a class="col-1 menufont" href="#">&nbsp 이벤트</a> 
+                        <a class="col-2 menufont" href="Login.html">&nbsp 로그인</a>
+                        <a class="col-2 menufont" href="#">회원가입</a>
+                        <a class="col-2 menufont" href="#">&nbsp&nbsp 문의</a>
+                        <a class="col-2 menufont" href="#">&nbsp 이벤트</a> 
                         <div class="col-1"></div>
                     </div>
                 </div>            
             </div>
-            
-            <div class="row">
-                <div class="col-12 my-5"></div>
-                <div class="col-12 my-5"></div>
-                <div class="col-12 my-5"></div>
-                <div class="col-12 my-5"></div>
-                <div class="col-12 my-5"></div>
-            </div>
-
-            <div class="row justify-content-center justify-content-end">
-                <a class="col-2 reqfont" href="addForm.html">헌혈증 등록</a>
-                <a class="col-2 reqfont" href="donationCard.html">헌혈증 기부</a>
-                <a class="col-2 reqfont" href="#">헌혈증 요청</a>
-            </div>
-
-
         </div>
 
     </section>
@@ -102,12 +106,65 @@
 <div class="container-fluid">
     <section>
         <div class="wrapper">
-            <div class="row">
-                <div class="col-6">
-                    <a class="col-2 infont" href="#"> 공지사항 </a>
+            <div class="row-cols-1">
+                <div class="col-8 infont mb-3">헌혈증</div>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col-8 donor_wrap">
+                            <div class="row justify-content-center">
+                                <a class="col-2 pt-4 donorBtn" href="addForm.html">등록</a>
+                                <a class="col-2 py-4 donorBtn" href="CardList.html">조회</a>
+                                <a class="col-2 py-4 donorBtn" href="#">요청</a>
+                                <a class="col-2 py-4 donorBtn" href="CardList.html">기부</a>
+                            </div>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-3 donor_wrap">
+                            <div class="infont mt-4 py-5">헌혈하러 가기</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-5">
-                    <a class="col-12 infont mb-5" href="#"> 이벤트 </a>
+
+                <div class="col my-5"></div>
+
+                <div class="col">
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="row-cols-1">
+                                <a class="col-2 infont" href="#"> 공지사항 </a>
+                                <div class="col-5 mt-3" style="width:95%; height:400px; background-color:rgb(207, 207, 207);">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row-cols-1">
+                                <a class="col-2 infont" href="#"> 이벤트 </a>
+                                <div id="carouselExampleControls" class="carousel slide mt-3" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                      <div class="carousel-item active">
+                                        <img src="img/Give_Logo.png" class="d-block" alt="#" width="100%" height="400px">
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="img/mainback_temp.png" class="d-block" alt="#" width="100%" height="400px">
+                                      </div>
+                                      <div class="carousel-item">
+                                        <img src="img/redbox.png" class="d-block" alt="#" width="100%" height="400px">
+                                      </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +172,7 @@
 </div>
 
 <div class="container-fluid">
-    <section style="background-color: bisque;">
+    <section>
         <div class="wrapper">
             <div class="row-cols-1">
 
@@ -124,7 +181,7 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-8 inbox infont">
+                    <div class="col-8 infont">
                        기브 소개
                     </div>        
 
@@ -136,13 +193,26 @@
 </div>
 
 <div class="container-fluid">
-    <section style="background-color: azure;">
+    <section>
         <div class="wrapper">
-            <div class="row justify-content-center">
-                <div class="col-8 inbox infont">
-                   레드박스 소개
-                </div>        
+            <div class="row-cols-1 justify-content-center">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-3 red_wrap" style="background-image: url(img/redbox.png); background-size: cover;"></div>
+                        <div class="col-9 infont mt-5"> 레드박스 소개</div>           
+                    </div>    
+                </div>
+                    
+                <div class="row">
+                    <div class="col-12 my-5"></div>
+                    <div class="col-12 my-5"></div>
+                    <div class="col-12 my-5"></div>
+                </div>
 
+                <div class="row">
+                    <div class="col-6 infont">개인기부 개수</div>
+                    <div class="col-6 infont">레드박스 기부 개수</div>
+                </div>
             </div>
 
         </div>
@@ -150,14 +220,24 @@
     </section>
 </div>
 
-    <div class="bottom_content container-fluid">
-        <h3 style="padding:10px;">기브</h3>
-        <button class="inline_content customer_center_btn">헌혈의 집 찾기</button>
-        <button class="inline_content customer_center_btn">고객센터</button>
-        <button class="inline_content customer_center_btn">레드커넥트</button><br><br>
-        <p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p>
-        <p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p>
-      </div>
+<footer class="container-fluid footer">
+    <h3 style="padding:10px;">기브</h3>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-2"><button class="customer-center-btn">헌혈의 집 찾기</button></div>
+        <div class="col-2"><button class="customer-center-btn">고객센터</button></div>                
+        <div class="col-2"><button class="customer-center-btn">레드커넥트</button></div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9" style="text-align:left;"><p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p></div>
+    </div>
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9" style="text-align:left;"><p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p></div>
+    </div>
+</footer>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

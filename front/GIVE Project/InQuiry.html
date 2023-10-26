@@ -37,7 +37,17 @@
         transform: translate(-50%, -50%);
     }
 
-    .tempbox{
+    .wrapperQ{
+        background-color: white;
+        position: absolute;
+        width: 90%;
+        height: 70%;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .boxQ{
         background-color: rgb(207, 207, 207);
     }
 
@@ -58,45 +68,57 @@
 <div class="container-fluid">
     <section>
         <div class="wrapper">
-            <div class="row">
-                <div class="row">
-                    <div class="col-3 infont">이벤트</div>
+            <div class="row-cols-1">
+                <div class="col">
+                    <a class="col-3 infont" href="Event.html">1:1 문의</a>
                     <div class="col-8"></div>
                 </div>
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
+
+                <div class="col mt-3 boxQ">
+                    <div class="row">
+                        <p class="col-2 fs-2 ms-5 mt-3">문의 종류</p>
+                        <div class="col-5 mt-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>문의 종류 선택</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div> 
+                        <div class="row">
+                            <div class="col-12 my-3"></div>
+                            <div class="col-12 my-5"></div>
+                            <div class="col-12 my-5"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 my-5"></div>
+                            <div class="col-12 my-5"></div>
+                            <div class="col-12 my-3"></div>
+                        </div>
+                        
+                        <div class="col wrapperQ">
+                            <div class="row">
+                                <div class="col-12 my-3"></div>
+                                <div class="col-12 my-5"></div>
+                                <div class="col-12 my-5"></div>
+                            </div>
+                            <p class="infont text-center">문의 내용</p>
+                            <div class="row">
+                                <div class="col-12 my-5"></div>
+                                <div class="col-12 my-5"></div>
+                                <div class="col-12 my-4"></div>
+                            </div>
+                        </div>
+        
+                        <div class="row mt-3 justify-content-center">
+                            <div class="col-3">
+                              <div class="btn w-100 justify-content-center fs-2"> 제출 </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
+                </div>        
 
-                <div class="row my-2"><p><hr></p></div>
-
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
-                    </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
-
-                <div class="row my-2"><p><hr></p></div>
-
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
-                    </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
-                
             </div>
         </div>
     </section>

@@ -37,9 +37,24 @@
         transform: translate(-50%, -50%);
     }
 
-    .tempbox{
+    .frame{
         background-color: rgb(207, 207, 207);
+        position: absolute;
+        width: 100%;
+        height: 90%;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
+
+    .box{
+        background-color: gainsboro;
+        height:77px
+    } 
+
+    .rereq{
+        background-color: gainsboro;
+    } 
 
   </style>
 </head>
@@ -58,45 +73,45 @@
 <div class="container-fluid">
     <section>
         <div class="wrapper">
-            <div class="row">
-                <div class="row">
-                    <div class="col-3 infont">이벤트</div>
-                    <div class="col-8"></div>
-                </div>
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
-                    </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
+            <div class="row-cols-1">
+                <div class="col">
+                    <div class="row">
+                        <a class="col-3 infont">헌혈증 요청 목록</a>
+                    </div>                  
                 </div>
 
-                <div class="row my-2"><p><hr></p></div>
+                <div class="col frame">
+                    <div class="row justify-content-center">
+                        <div class="col-11 row ms-1 fs-3 mt-4 box"> 
+                            <div class="col-8 mt-3">환자:000 혈액형:A</div>  
+                            <div class="col-4 mt-3 text-end">승인 - 레드박스 요청 중</div>
+                        </div>
 
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
-                    </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
+                        <div class="col-11 row ms-1 fs-3 mt-4 box"> 
+                            <div class="col-8 mt-3">환자:000 혈액형:A</div>  
+                            <div class="col-4 mt-3 text-end">승인 - 레드박스 요청 중</div>
+                        </div>
+
+                        <div class="col-11 row ms-1 fs-3 mt-4 box"> 
+                            <div class="col-8 mt-3">환자:000 혈액형:A</div>  
+                            <div class="col-4 mt-3 text-end">반려 - 요청 자료 불충분</div>
+                        </div>
+                        <div class="col-11 row ms-1 fs-3 mt-2 rereq"> 
+                            <div class="col-12 text-center">재요청</div>  
+                        </div>          
+
+                        <div class="col-11 row ms-1 fs-3 mt-4 box"> 
+                            <div class="col-8 mt-3">환자:000 혈액형:A</div>  
+                            <div class="col-4 mt-3 text-end">승인 - 레드박스 발급 완료</div>
+                        </div>
+
+                        <div class="col-11 row ms-1 fs-3 mt-4 box"> 
+                            <div class="col-8 mt-3">환자:000 혈액형:A</div>  
+                            <div class="col-4 mt-3 text-end">승인 - 레드박스 발급 완료</div>
+                        </div>
+                    </div>                                                             
                 </div>
-
-                <div class="row my-2"><p><hr></p></div>
-
-                <div class="row my-3">
-                    <div class="col-3 tempbox">
-                        <img src="img/Give_Logo.png" alt="#" width="120" height="120">
-                    </div>
-                    <a class="col-9 tempbox" href="Event_Detail.html">
-                        <p class="text-center fs-2">이벤트 명</p>
-                        <p class="text-center fs-4">행사기간 : 2023.09.28 ~ 2023.10.03</p>
-                    </a>
-                </div>
-                
+                                        
             </div>
         </div>
     </section>

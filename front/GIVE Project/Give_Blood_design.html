@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="StyleForm.css" rel="stylesheet">
+  <link href="RadioButton.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <style>
+    body{
+      min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    section{
+      position: relative;
+      height: 100%;
+    }
+
+    .wrapList{
+      position: relative;
+      width: 68.5%;
+      left: 16%;
+    }
+
+    .list_item {
+      width: 320px;
+      height: 200px;
+      border-radius: 25px;
+      background-color: #ffd200;
+      display: inline-block;
+      margin: 11px;
+      box-shadow: 1px 1px 5px;
+    }
+
+    .list_item_form {
+      position: relative;
+      background-color: white;
+      height: 73%;
+      width: 96%;
+      left: 6%;
+      top: 5%;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+
+    .list_text{
+      font-size: 15px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .circleLeft{
+      background-color: #FE0000;
+      opacity: 30%;
+      position: absolute;
+      width: 230px;
+      height: 270px;
+      border-radius: 0 230px 230px 0;
+      top: 60%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circleLeftS{
+      background-color: #FF4D4D;
+      opacity: 40%;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      top: 84%;
+      left: 3%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circleLeftM{
+      background-color: #FF4D4D;
+      opacity: 40%;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      top: 80%;
+      left: 5%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circleLeftL{
+      background-color: #FF4D4D;
+      opacity: 70%;
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      border-radius: 45px;
+      top: 78%;
+      left: 2%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circleRight{
+      background-color: #FE0000;
+      opacity: 50%;
+      position: absolute;
+      width: 80px;
+      height: 120px;
+      border-radius: 80px 0 0 80px;
+      top: 30%;
+      left: 99%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circleRightS{
+      background-color: #FF4D4D;
+      opacity: 45%;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      top: 18%;
+      left: 99%;
+      transform: translate(-50%, -50%);
+    }
+
+    .circleRightM{
+      background-color: #FF4D4D;
+      opacity: 100%;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 15px;
+      top: 23%;
+      left: 98%;
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="circleLeft"></div>
+  <div class="circleLeftS"></div>
+  <div class="circleLeftM"></div>
+  <div class="circleLeftL"></div>
+
+  <div class="circleRight"></div>
+  <div class="circleRightS"></div>
+  <div class="circleRightM"></div>
+
+  <div class="header">
+    <div class="row align-items-center">
+      <div class="col-7 ms-5">
+        <img src="img/Main_title.png" alt="#" width="140" height="140">
+      </div>
+      <div class="col-4">
+        <a class="col-1 menufont" href="Event.html">이벤트</a>
+        <a class="col-1 menufont" href="InQuiry.html">문의</a>
+        <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div style="text-align: left; margin-left: 270px;" class="col-2 fs-3 mt-2 mb-5">헌혈증 선택</div>
+    <div class="col-5"></div>
+    <div class="col-1 mt-2 mb-5 me-3">
+      <select class="form-select" aria-label="view_Filter">
+          <option value="new" selected>최근 순</option>
+          <option value="old">오래된 순</option>
+          <option value="kind">헌혈종류</option>
+      </select>
+  </div> 
+
+  </div>
+
+  <section>
+    <div class="wrapList">
+
+      <!--한세트-->
+      <div class="list_item">
+        <div class="row">
+          <div style="font-size: 18px; font-weight: bold; width: 110px; margin-top: 11px;" 
+            class="col-3 ms-3">헌혈증서</div>
+          <div style="border-radius: 10px; background-color: white; height: 32px; top: 10px; width: 190px;" 
+            class="col-6 row mt-2">
+            <div class="col-4 row-cols-1">
+              <div style="font-size: 12px; line-height: 90%; text-align: left; margin-top: 6px; 
+                font-weight: bold;" class="col-12">증서</div>
+              <div style="font-size: 12px; line-height: 90%; text-align: left; font-weight: bold;" class="col-12">번호</div>
+            </div>
+            <div style="font-size: 14px; margin-top: 6px;" class="col-8 list_text">12-34-56789</div>
+          </div>  
+        </div>
+        <div class="row list_item_form">
+          <div class="col-4 mt-2 list_text text-end">헌혈종류:</div>
+          <div class="col-7 mt-2 list_text">전혈 320mL</div>
+          <div class="col-4 list_text text-end">헌혈일자:</div>
+          <div class="col-7 list_text">2023.10.25</div>
+          <div class="col-4 list_text text-end">혈액원명:</div>
+          <div class="col-7 list_text">대전.세종.충남&nbsp혈액원</div>
+          <div class="col-5"></div>
+          <label class="col-2 switch-button">
+            <input type="checkbox"/><span class="onoff-switch"></span>
+          </label>
+        </div>
+      </div>
+      <!--여기까지-->
+
+      <div class="list_item">
+        <div class="row">
+          <div style="font-size: 18px; font-weight: bold; width: 110px; margin-top: 11px;" 
+            class="col-3 ms-3">헌혈증서</div>
+          <div style="border-radius: 10px; background-color: white; height: 32px; top: 10px; width: 190px;" 
+            class="col-6 row mt-2">
+            <div class="col-4 row-cols-1">
+              <div style="font-size: 12px; line-height: 90%; text-align: left; margin-top: 6px; 
+                font-weight: bold;" class="col-12">증서</div>
+              <div style="font-size: 12px; line-height: 90%; text-align: left; font-weight: bold;" class="col-12">번호</div>
+            </div>
+            <div style="font-size: 14px; margin-top: 6px;" class="col-8 list_text">12-34-56789</div>
+          </div>  
+        </div>
+        <div class="row list_item_form">
+          <div class="col-4 mt-2 list_text text-end">헌혈종류:</div>
+          <div class="col-7 mt-2 list_text">전혈 320mL</div>
+          <div class="col-4 list_text text-end">헌혈일자:</div>
+          <div class="col-7 list_text">2023.10.25</div>
+          <div class="col-4 list_text text-end">혈액원명:</div>
+          <div class="col-7 list_text">대전.세종.충남&nbsp혈액원</div>
+          <div class="col-5"></div>
+          <label class="col-2 switch-button">
+            <input type="checkbox"/><span class="onoff-switch"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="list_item">
+        <div class="row">
+          <div style="font-size: 18px; font-weight: bold; width: 110px; margin-top: 11px;" 
+            class="col-3 ms-3">헌혈증서</div>
+          <div style="border-radius: 10px; background-color: white; height: 32px; top: 10px; width: 190px;" 
+            class="col-6 row mt-2">
+            <div class="col-4 row-cols-1">
+              <div style="font-size: 12px; line-height: 90%; text-align: left; margin-top: 6px; 
+                font-weight: bold;" class="col-12">증서</div>
+              <div style="font-size: 12px; line-height: 90%; text-align: left; font-weight: bold;" class="col-12">번호</div>
+            </div>
+            <div style="font-size: 14px; margin-top: 6px;" class="col-8 list_text">12-34-56789</div>
+          </div>  
+        </div>
+        <div class="row list_item_form">
+          <div class="col-4 mt-2 list_text text-end">헌혈종류:</div>
+          <div class="col-7 mt-2 list_text">전혈 320mL</div>
+          <div class="col-4 list_text text-end">헌혈일자:</div>
+          <div class="col-7 list_text">2023.10.25</div>
+          <div class="col-4 list_text text-end">혈액원명:</div>
+          <div class="col-7 list_text">대전.세종.충남&nbsp혈액원</div>
+          <div class="col-5"></div>
+          <label class="col-2 switch-button">
+            <input type="checkbox"/><span class="onoff-switch"></span>
+          </label>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="list_item">
+        <div class="row">
+          <div style="font-size: 18px; font-weight: bold; width: 110px; margin-top: 11px;" 
+            class="col-3 ms-3">헌혈증서</div>
+          <div style="border-radius: 10px; background-color: white; height: 32px; top: 10px; width: 190px;" 
+            class="col-6 row mt-2">
+            <div class="col-4 row-cols-1">
+              <div style="font-size: 12px; line-height: 90%; text-align: left; margin-top: 6px; 
+                font-weight: bold;" class="col-12">증서</div>
+              <div style="font-size: 12px; line-height: 90%; text-align: left; font-weight: bold;" class="col-12">번호</div>
+            </div>
+            <div style="font-size: 14px; margin-top: 6px;" class="col-8 list_text">12-34-56789</div>
+          </div>  
+        </div>
+        <div class="row list_item_form">
+          <div class="col-4 mt-2 list_text text-end">헌혈종류:</div>
+          <div class="col-7 mt-2 list_text">전혈 320mL</div>
+          <div class="col-4 list_text text-end">헌혈일자:</div>
+          <div class="col-7 list_text">2023.10.25</div>
+          <div class="col-4 list_text text-end">혈액원명:</div>
+          <div class="col-7 list_text">대전.세종.충남&nbsp혈액원</div>
+          <div class="col-5"></div>
+          <label class="col-2 switch-button">
+            <input type="checkbox"/><span class="onoff-switch"></span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+        
+    <div class="row justify-content-end mt-2 mb-5">
+      <div class="col-3 my-3 me-4">
+        <button type="button" id="giveBtn" class="give_btn text-center" href="Give_Blood_Select.html">기브하기</button>
+      </div>
+      <div class="col-1"></div>
+    </div>
+       
+        
+        <footer class="footer">
+          <h3 style="padding:10px;">기브</h3>
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-2"><button class="customer-center-btn">헌혈의 집 찾기</button></div>
+            <div class="col-2"><button class="customer-center-btn">고객센터</button></div>
+            <div class="col-2"><button class="customer-center-btn">레드커넥트</button></div>
+            <div class="col-3"></div>
+          </div>
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-9" style="text-align:left;">
+              <p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-9" style="text-align:left;">
+              <p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p>
+            </div>
+          </div>
+        </footer>
+
+  </section>
+
+  
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
