@@ -51,6 +51,7 @@ public class UserRepositoryImplements implements UserRepository {
 
     @Override
     public Optional<User> findUserByUserId(Long userId) {
+        log.info("userId : [{}]",userId);
         return jpaRepository.findById(userId);
     }
 

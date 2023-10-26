@@ -3,6 +3,7 @@ package ten.give.web.form;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Data;
 import ten.give.common.enums.DonorCenter;
 import ten.give.common.enums.DonorKind;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 
 @ApiModel(value = "Donor Card 수정 form")
 @Data
+@Builder
 public class DonorUpdateForm {
 
     @ApiModelProperty(value = "헌혈자 이름", required = true, example = "양지웅")
@@ -37,4 +39,16 @@ public class DonorUpdateForm {
     @ApiModelProperty(value = "변경할 user", required = true, example = "2")
     private Long userId;
 
+    public DonorUpdateForm() {
+    }
+
+    public DonorUpdateForm(String name, DonorKind kind, LocalDate birth, Gender gender, LocalDate donorDate, DonorCenter donorCenter, Long userId) {
+        this.name = name;
+        this.kind = kind;
+        this.birth = birth;
+        this.gender = gender;
+        this.donorDate = donorDate;
+        this.donorCenter = donorCenter;
+        this.userId = userId;
+    }
 }

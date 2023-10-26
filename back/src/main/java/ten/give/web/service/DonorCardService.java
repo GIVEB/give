@@ -55,7 +55,6 @@ public class DonorCardService {
         Optional<User> findUser = userRepository.findUserByUserId(Long.valueOf(authentication.getName()));
         if (!findUser.isEmpty()){
             DonorCard donorCard = DonorCard.buildDonorCard(form, findUser.get());
-            log.info("{}" ,donorCard.getName());
             DonorCard savedCard = cardRepository.saveCard(donorCard);
             return savedCard.donorCardToDonorCardInfoForm();
         }
@@ -120,6 +119,53 @@ public class DonorCardService {
     private void printDonorCard(DonorCard c) {
         log.info("[{}] -> name : {} , kind: {}, birth: {}, gender : {} , donor_date : {} , donor_center : {} , registrationDate : {} , user : {}",
                 c.getCardId(), c.getName(), c.getKind(), c.getBirth(),c.getGender(),c.getDonorDate(),c.getDonorCenter(),c.getRegistrationDate(),c.getUser().getUserId());
+    }
+
+    @Transactional
+    public Map<String,List<DonorCardInfoForm>> DonationCard(Long toId, List<Long> cardIdList, String loginId){
+
+        Map<String,List<DonorCardInfoForm>> result = new HashMap<>();
+
+        List<DonorCardInfoForm> cardInfoList = new ArrayList<>();
+
+        for ( Long cardId : cardIdList) {
+
+            Optional<DonorCard> cardByCardId = cardRepository.findCardByCardId(cardId);
+            Optional<User> userByUserId = userRepository.findUserByUserId(toId);
+
+            if(!cardByCardId.isEmpty() && !userByUserId.isEmpty()){
+                DonorCard cardInfo = cardByCardId.get();
+
+                if (cardByCardId.get().getUser().getUserId() == 1 && !loginId.equals("1")){
+                    throw new IllegalArgumentException("RedBox 는 접근 불허");
+                }
+
+                if (cardByCardId.get().getUser().getUserId() != Long.valueOf(loginId) && !loginId.equals("1")){
+                        throw new IllegalArgumentException("자신의 카드만 기부가능 합니다.");
+                }
+
+                DonorUpdateForm form = new DonorUpdateForm().builder().userId(toId)
+                        .donorCenter(cardInfo.getDonorCenter())
+                        .birth(cardInfo.getBirth())
+                        .donorDate(cardInfo.getDonorDate())
+                        .kind(cardInfo.getKind())
+                        .name(cardInfo.getName())
+                        .gender(cardInfo.getGender())
+                        .build();
+
+                DonorCardInfoForm donorCardInfoForm = updateCard(cardId, form);
+                cardInfoList.add(donorCardInfoForm);
+
+            }else{
+                throw new NoSuchTargetException("user 나 card 가 존재하지 않습니다.");
+            }
+
+        }
+
+        result.put("donorCard",cardInfoList);
+
+        return result;
+
     }
 
 
