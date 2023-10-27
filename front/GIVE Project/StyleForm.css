@@ -18,6 +18,7 @@ footer {
     height:170px;
     background-color:#F0F0F0;
     text-align: center;
+    border-top-right-radius: 120px;
 }
 
 .work_space{
