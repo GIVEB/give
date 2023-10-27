@@ -62,8 +62,8 @@
       position: fixed;
       top: 45%;
       left: 50%;
-      width: 550px;
-      height: 550px;
+      width: 800px;
+      height: 600px;
       background-color: white;
       transform: translate(-50%, -50%);
       transition: 1s;
@@ -101,6 +101,13 @@
     #bubbleDeco {
       position:absolute;
       z-index:-1;
+    }
+
+    .input-underline {
+      border:none;
+      background:none;
+      border-bottom:solid gray 1px;
+      border-radius: none;
     }
   </style>
 </head>
@@ -171,58 +178,69 @@
   <!-- user Donation modal -->
   <div id="userDonationModalContainer" class="modal_container d-none">
     <div id="userDonationModal" class="d-none">
-      <div class="btn float-end" onclick="hideUserDonationModal()"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+      <!-- <div class="btn float-end" onclick="hideUserDonationModal()"><svg xmlns="http://www.w3.org/2000/svg" width="30"
           height="30" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
           <path
             d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-        </svg></div>
+        </svg></div> -->
       <div class="text-center mt-5">
         <h1>헌혈증 기부</h1>
       </div>
       <hr>
       <div class="container">
-        <form>
-          <div class="row mb-5 mt-3">
-            <label for="inputName" class="col-sm-2 col-form-label ">성명</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputName">
-            </div>
+        <div class="row">
+          <div class="col-5">
+            <div><img src="img/red_box_User.png" alt="#" width="250" height="300"></div>
           </div>
-          <div class="row mb-5">
-            <label for="inputBirth" class="col-sm-2 col-form-label">생년월일</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputBirth">
-            </div>
-          </div>
-          <fieldset class="row mb-5">
-            <legend class="col-form-label col-sm-2 pt-0">성별</legend>
-            <div class="col-sm-10">
-              <div class="ms-2 row">
-                <div class="form-check col-2">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="inputMale" value="m" checked>
-                  <label class="form-check-label" for="inputMale">
-                    남자
-                  </label>
-                </div>
-                <div class="form-check col-2">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="inputFemale" value="f">
-                  <label class="form-check-label" for="inputFemale">
-                    여자
-                  </label>
+          <div class="col-7">
+            <form id="user_data">
+              <div class="row mb-5 mt-3">
+                <label for="inputName" class="col-sm-3 col-form-label ">성명</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control input-underline" id="inputName">
                 </div>
               </div>
-            </div>
-          </fieldset>
-          <div class="row mb-5">
-            <label for="inputPhone" class="col-sm-2 col-form-label">전화번호</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputPhone">
-            </div>
+              <div class="row mb-5">
+                <label for="inputBirth" class="col-sm-3 col-form-label">생년월일</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control input-underline" id="inputBirth">
+                </div>
+              </div>
+              <fieldset class="row mb-5">
+                <legend class="col-form-label col-sm-3 pt-0">성 별</legend>
+                <div class="col-sm-9">
+                  <div class="ms-2 row">
+                    <div class="form-check col-3">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="inputMale" value="m" checked>
+                      <label class="form-check-label" for="inputMale">
+                        남자
+                      </label>
+                    </div>
+                    <div class="form-check col-3">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="inputFemale" value="f">
+                      <label class="form-check-label" for="inputFemale">
+                        여자
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="row mb-5">
+                <label for="inputPhone" class="col-sm-3 col-form-label">전화번호</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control input-underline" id="inputPhone">
+                </div>
+              </div>
+            </form>
+            
+            
           </div>
-          <div class="row mb-5 ms-2 me-2">
-            <button type="submit" class="btn btn-primary">기부</button>
-          </div>
-        </form>
+        </div>
+        <hr>
+        <div class="row mb-5 ms-2 me-2">
+          <button form="user_data" type="button" class="col-6 btn dontaion-modal-btn" onclick="hideUserDonationModal()"><h3>취소</h3></button>
+          <button form="user_data" type="submit" class="col-6 btn donation-modal-btn"><h3>기브</h3></button>
+        </div>
       </div>
 
     </div>
@@ -256,7 +274,7 @@
       <div class="container">
         <div class="row mb-5 ms-2 me-2">
           <button type="button" class="col-6 btn dontaion-modal-btn"><h3>취소</h3></button>
-          <button type="submit" class="col-6 btn donation-modal-btn"><h3>기브</h3></button>
+          <button type="submit" class="col-6 btn donation-modal-btn"><h3>기부</h3></button>
         </div>
       </div>
 
