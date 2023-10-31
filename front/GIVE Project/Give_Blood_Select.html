@@ -99,8 +99,14 @@
     }
 
     #bubbleDeco {
+      position: fixed;
       position:absolute;
       z-index:-1;
+      top:45%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      transition: 1s;
+      border-radius:20px;
     }
 
     .input-underline {
@@ -183,16 +189,26 @@
           <path
             d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
         </svg></div> -->
-      <div class="text-center mt-5">
-        <h1>헌혈증 기부</h1>
-      </div>
-      <hr>
+      <canvas id="bubbleDeco" width="800" height="600"></canvas>
+      <script>
+        var c = document.getElementById("bubbleDeco");
+        var bubble = c.getContext("2d");
+
+        bubble.beginPath();
+        bubble.arc(0,150,70,0,Math.PI*2);
+        bubble.fillStyle="rgba(255,77,77,0.7)";
+        bubble.fill();
+
+      </script>
+
+      
       <div class="container">
         <div class="row">
           <div class="col-5">
             <div><img src="img/red_box_User.png" alt="#" width="250" height="300"></div>
           </div>
           <div class="col-7">
+            <div><h2>대상자 정보 입력</h2></div>
             <form id="user_data">
               <div class="row mb-5 mt-3">
                 <label for="inputName" class="col-sm-3 col-form-label ">성명</label>
@@ -238,22 +254,21 @@
         </div>
         <hr>
         <div class="row mb-5 ms-2 me-2">
-          <button form="user_data" type="button" class="col-6 btn dontaion-modal-btn" onclick="hideUserDonationModal()"><h3>취소</h3></button>
-          <button form="user_data" type="submit" class="col-6 btn donation-modal-btn"><h3>기브</h3></button>
+          <button type="button" class="col-6 btn dontaion-modal-btn" onclick="hideUserDonationModal()"><h3>취소</h3></button>
+          <button type="submit" class="col-6 btn donation-modal-btn"><h3>기브</h3></button>
         </div>
       </div>
-
     </div>
   </div>
 
   <!-- red box donatin modal -->
   <div id="redDonationModalContainer" class="modal_container d-none">
     <div id="redboxDonationModal" class="d-none">
-      <div class="btn float-end" onclick="hideRedboxDonationModal()"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+      <!-- <div class="btn float-end" onclick="hideRedboxDonationModal()"><svg xmlns="http://www.w3.org/2000/svg" width="30"
           height="30" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
           <path
             d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-        </svg></div>
+        </svg></div> -->
       <div class="text-center mt-5">
         <h1>기부 개수</h1>
       </div>
@@ -273,7 +288,7 @@
       <hr>
       <div class="container">
         <div class="row mb-5 ms-2 me-2">
-          <button type="button" class="col-6 btn dontaion-modal-btn"><h3>취소</h3></button>
+          <button type="button" class="col-6 btn dontaion-modal-btn" onclick="hideRedboxDonationModal()"><h3>취소</h3></button>
           <button type="submit" class="col-6 btn donation-modal-btn"><h3>기부</h3></button>
         </div>
       </div>
