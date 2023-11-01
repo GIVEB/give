@@ -32,7 +32,6 @@ public class InitData {
 
         User adminUser = new User().builder()
                 .account(adminAccount)
-                .userId(1L)
                 .name("관리자")
                 .phone("010-1234-1234")
                 .Address("chungju")
@@ -40,8 +39,12 @@ public class InitData {
                 .birth_year("1994")
                 .birth_month("02")
                 .birth_day("11")
+                .donationCount(180L)
+                .gender(Gender.M)
                 .build();
         userRepository.saveUser(adminUser);
+
+        adminUser.setUserId(1L);
 
         Account account = new Account().builder().email("testA@test.com").password("testA").build();
         accountRepository.saveAccount(account);
@@ -55,12 +58,19 @@ public class InitData {
                 .birth_year("1994")
                 .birth_month("02")
                 .birth_day("11")
+                .donationCount(20L)
+                .gender(Gender.F)
                 .build();
         userRepository.saveUser(user);
 
+
+
+    }
+
+    @PostConstruct
+    public void InitDonorCardData() {
         Account accountShin = new Account().builder().email("duddns119@gmail.com").password("tlsduddns123").build();
         accountRepository.saveAccount(accountShin);
-
         User userShin = new User().builder()
                 .account(accountShin)
                 .name("신영운")
@@ -70,26 +80,10 @@ public class InitData {
                 .birth_year("1994")
                 .birth_month("02")
                 .birth_day("11")
+                .donationCount(200L)
+                .gender(Gender.M)
                 .build();
         userRepository.saveUser(userShin);
-
-    }
-
-    @PostConstruct
-    public void InitDonorCardData() {
-        Account account = new Account().builder().email("testB@test.com").password("testB").build();
-        accountRepository.saveAccount(account);
-        User user = new User().builder()
-                .account(account)
-                .name("test")
-                .phone("010-xxx-xxx")
-                .Address("chungju")
-                .Address_detail("KNUT")
-                .birth_year("1994")
-                .birth_month("02")
-                .birth_day("11")
-                .build();
-        userRepository.saveUser(user);
         for (int i = 1; i <= 10; i++) {
             DonorCard donorCard = new DonorCard().builder()
                     .name("test" + 1)
@@ -98,7 +92,7 @@ public class InitData {
                     .donorDate(LocalDate.of(2023, 9, 11))
                     .donorCenter(CHUNGNAM)
                     .kind(DonorKind.WHOLE)
-                    .user(user).build();
+                    .user(userShin).build();
             cardRepository.saveCard(donorCard);
         }
 

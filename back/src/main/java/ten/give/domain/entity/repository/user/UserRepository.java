@@ -22,4 +22,8 @@ public interface UserRepository {
 
     Optional<User> findUserByEmail(String email);
 
+    Long getDonationCount(Long userId);
+
+    Long getTotalDonationCount();
+
 }

@@ -84,6 +84,8 @@ public class UserService {
                 .birth_month(form.getBirthDay())
                 .birth_day(form.getBirthDay())
                 .joinDate(LocalDate.now())
+                .donationCount(0L)
+                .gender(form.getGender())
                 .build();
 
         Account savedAccount = accountRepository.saveAccount(account);
@@ -113,9 +115,14 @@ public class UserService {
         userRepository.updateUser(userId,updateparam);
 
         Optional<User> updatedUser = userRepository.findUserByUserId(userId);
+        Long totalDonationCount = getTotalDonationCount();
 
-        UserInfoForm userInfo = updatedUser.get().userTransferToUserInfo();
+        UserInfoForm userInfo = updatedUser.get().userTransferToUserInfo(totalDonationCount);
 
         return userInfo;
+    }
+
+    public Long getTotalDonationCount() {
+        return userRepository.getTotalDonationCount();
     }
 }

@@ -34,6 +34,10 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath birth_year = createString("birth_year");
 
+    public final NumberPath<Long> donationCount = createNumber("donationCount", Long.class);
+
+    public final EnumPath<ten.give.common.enums.Gender> gender = createEnum("gender", ten.give.common.enums.Gender.class);
+
     public final DatePath<java.time.LocalDate> joinDate = createDate("joinDate", java.time.LocalDate.class);
 
     public final StringPath name = createString("name");

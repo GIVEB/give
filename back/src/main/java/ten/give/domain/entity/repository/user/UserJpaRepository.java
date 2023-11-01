@@ -14,4 +14,9 @@ public interface UserJpaRepository  extends JpaRepository<User,Long> {
     @Query(value = "select u from User u where u.account.email = :email")
     Optional<User> findByEmail(@Param("email") String email);
 
+    @Query(value = "select u.donationCount from User u where u.userId = :userId")
+    Long getDonationCountByUserId(Long userId);
+
+    @Query(value = "select SUM(u.donationCount) from User u")
+    Long getTotalDonationCount();
 }

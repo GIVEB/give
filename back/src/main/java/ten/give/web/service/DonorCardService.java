@@ -133,7 +133,11 @@ public class DonorCardService {
             Optional<DonorCard> cardByCardId = cardRepository.findCardByCardId(cardId);
             Optional<User> userByUserId = userRepository.findUserByUserId(toId);
 
-            if(!cardByCardId.isEmpty() && !userByUserId.isEmpty()){
+            if (checkSelfDonation(cardByCardId,userByUserId)){
+                throw new IllegalArgumentException("자신에게는 기부할 수 없습니다.");
+            }
+
+            if(checkRedBoxAccess(cardByCardId,userByUserId)){
                 DonorCard cardInfo = cardByCardId.get();
 
                 if (cardByCardId.get().getUser().getUserId() == 1 && !loginId.equals("1")){
@@ -141,7 +145,7 @@ public class DonorCardService {
                 }
 
                 if (cardByCardId.get().getUser().getUserId() != Long.valueOf(loginId) && !loginId.equals("1")){
-                        throw new IllegalArgumentException("자신의 카드만 기부가능 합니다.");
+                    throw new IllegalArgumentException("자신의 카드만 기부가능 합니다.");
                 }
 
                 DonorUpdateForm form = new DonorUpdateForm().builder().userId(toId)
@@ -168,6 +172,12 @@ public class DonorCardService {
 
     }
 
+    private Boolean checkRedBoxAccess(Optional<DonorCard> cardByCardId , Optional<User> userByUserId ){
+        return !cardByCardId.isEmpty() && !userByUserId.isEmpty();
+    }
 
+    private Boolean checkSelfDonation(Optional<DonorCard> cardByCardId , Optional<User> userByUserId){
+        return cardByCardId.get().getUser().getUserId() == userByUserId.get().getUserId();
+    }
 
 }

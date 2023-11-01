@@ -68,4 +68,14 @@ public class UserRepositoryImplements implements UserRepository {
         }
         return byEmail;
     }
+
+    @Override
+    public Long getDonationCount(Long userId) {
+        return jpaRepository.getDonationCountByUserId(userId);
+    }
+
+    @Override
+    public Long getTotalDonationCount() {
+        return jpaRepository.getTotalDonationCount();
+    }
 }

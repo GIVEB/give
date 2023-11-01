@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import ten.give.common.enums.Gender;
+import ten.give.common.utils.GradeUtils;
 import ten.give.web.form.UserInfoForm;
 
 import javax.persistence.*;
@@ -36,6 +38,8 @@ public class User {
     @Column(length = 21)
     private String name;
 
+    private Gender gender;
+
     private String birth_year;
 
     private String birth_month;
@@ -50,8 +54,10 @@ public class User {
 
     private LocalDate joinDate;
 
+    private Long donationCount;
 
-    public UserInfoForm userTransferToUserInfo() {
+
+    public UserInfoForm userTransferToUserInfo(Long totalDonationCount) {
         UserInfoForm userInfoForm = new UserInfoForm();
         userInfoForm.setName(this.name);
         userInfoForm.setBirth_year(this.birth_year);
@@ -60,6 +66,10 @@ public class User {
         userInfoForm.setPhone(this.phone);
         userInfoForm.setAddress(this.getAddress());
         userInfoForm.setAddress_detail(this.getAddress_detail());
+        userInfoForm.setDonationCount(this.donationCount);
+        userInfoForm.setTotalDonationCount(totalDonationCount);
+        userInfoForm.setGrade(GradeUtils.getGrade(this.donationCount,totalDonationCount));
+        userInfoForm.setGender(this.gender.getGender());
         return userInfoForm;
     }
 
@@ -70,4 +80,5 @@ public class User {
     public User() {
 
     }
+
 }

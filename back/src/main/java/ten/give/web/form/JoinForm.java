@@ -3,6 +3,7 @@ package ten.give.web.form;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import ten.give.common.enums.Gender;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -50,5 +51,8 @@ public class JoinForm {
 
     @ApiModelProperty(value = "주소 상세", example = "xx 아파트, xxx동 xxx호")
     private String addressDetail;
+
+    @ApiModelProperty(value = "성별 " , example = "남자, 여자")
+    private Gender gender;
 
 }

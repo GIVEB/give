@@ -145,12 +145,13 @@ public class UserController {
     public UserInfoForm showUserInfo(Authentication authentication){
 
         Optional<User> userByEmail = userService.getuserByAccountId(Long.valueOf(authentication.getName()));
+        Long totalDonationCount = userService.getTotalDonationCount();
 
         if (userByEmail.isEmpty()){
             throw new NoSuchTargetException("존재 하지 않는 User 입니다.");
         }
 
-        UserInfoForm userInfoForm = userByEmail.get().userTransferToUserInfo();
+        UserInfoForm userInfoForm = userByEmail.get().userTransferToUserInfo(totalDonationCount);
 
         return userInfoForm;
 

@@ -1,8 +1,11 @@
 package ten.give.web.form;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import ten.give.common.enums.Gender;
+import ten.give.common.enums.Grade;
 
 @Data
 @ApiModel(value = "로그인 입력 form")
@@ -28,6 +31,18 @@ public class UserInfoForm {
 
     @ApiModelProperty(value = "주소 상세", example = "xx 아파트, xxx동 xxx호")
     private String Address_detail;
+
+    @ApiModelProperty(value = "기부 횟수", example = "100")
+    private Long donationCount;
+
+    @ApiModelProperty(value = "총 기부 횟수" , example = "303424")
+    private Long totalDonationCount;
+
+    @ApiModelProperty(value = "등급", example = "OIL TANK")
+    private Grade grade;
+
+    @ApiModelProperty(value = "성별", example = "MALE, FEMALE")
+    private String gender;
 
 
 }
