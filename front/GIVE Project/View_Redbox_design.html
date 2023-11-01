@@ -103,12 +103,10 @@
             <canvas id="bubbleDeco"></canvas>
             <script>
                 var container = document.getElementById("container");
-                var h = container.clientHeight;
                 var b = document.getElementById("bubbleDeco");
                 var bubble = b.getContext("2d");
                 b.width = window.innerWidth;
                 b.height = window.innerHeight;
-                b.style.height = h;
                 
                 //left side bubble
                 bubble.beginPath();
