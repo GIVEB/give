@@ -16,54 +16,57 @@
 
     <body>
         <canvas id="bubbleDeco"></canvas>
-            <script>
-                var b = document.getElementById("bubbleDeco");
-                var bubble = b.getContext("2d");
-                b.width = window.innerWidth;
-                b.height = window.innerHeight;
-                
-                //left side bubble
-                bubble.beginPath();
-                bubble.arc(0,100,100,0,Math.PI*2);
-                bubble.fillStyle="rgba(254,0,0,0.3)";
-                bubble.fill();
+        <script>
+            var b = document.getElementById("bubbleDeco");
+            var bubble = b.getContext("2d");
+            b.width = window.innerWidth;
+            b.height = window.innerHeight;
+            
+            //left side bubble
+            bubble.beginPath();
+            bubble.arc(0,250,100,0,Math.PI*2);
+            bubble.fillStyle="rgba(254,0,0,0.3)";
+            bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(88,200,15,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.6)";
-                bubble.fill();
+            bubble.beginPath();
+            bubble.arc(88,350,15,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.6)";
+            bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(60,230,8,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.4)";
-                bubble.fill();
+            bubble.beginPath();
+            bubble.arc(60,380,8,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
 
-                //right side bubble
-                bubble.beginPath();
-                bubble.arc(b.width,320,100,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.4))";
-                bubble.fill();
+            //right side bubble
+            bubble.beginPath();
+            bubble.arc(b.width,470,100,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4))";
+            bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(b.width-88,200,15,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.6)";
-                bubble.fill();
+            bubble.beginPath();
+            bubble.arc(b.width-88,350,15,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.6)";
+            bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(b.width-60,180,8,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.4)";
-                bubble.fill();
+            bubble.beginPath();
+            bubble.arc(b.width-60,330,8,0,Math.PI*2);
+            bubble.fillStyle="rgba(255,77,77,0.4)";
+            bubble.fill();
+        </script>
 
-            </script>
-        <header class="container-fluid header">
-            <div class="row">
-                <div class="col-7"><button class="menu-btn">give</button></div>
-                <div class="col-1"><button class="mypage-btn">로그인</button></div>
-                <div class="col-1"><button class="mypage-btn">회원가입</button></div>
-                <div class="col-1"><button class="mypage-btn">문의</button></div>
-                <div class="col-2"><button class="mypage-btn">이벤트</button></div>
+            <div class="header">
+                <div class="row align-items-center" style="width:100%;">
+                <div class="col-7 ms-5">
+                    <img src="img/Main_title.png" alt="#" width="140" height="140">
+                </div>
+                <div class="col-4">
+                    <a class="col-1 menufont" href="Event.html">이벤트</a> 
+                    <a class="col-1 menufont" href="InQuiry.html">문의</a>
+                    <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>        
+                </div>            
+                </div>
             </div>
-        </header>
 
         <div id="container" class="container" style="margin:0; padding:0;">
             

@@ -92,56 +92,55 @@
             position:absolute;
             z-index:-1;
             width:100%;
-            height:auto;
+            height:100%;
             display:block;
         }
     </style>
 
 </head>
-    <body>
-        <div class="container" style="width:100%; margin:0; padding:0;">
-            <canvas id="bubbleDeco"></canvas>
-            <script>
-                var container = document.getElementById("container");
-                var b = document.getElementById("bubbleDeco");
-                var bubble = b.getContext("2d");
-                b.width = window.innerWidth;
-                b.height = window.innerHeight;
-                
-                //left side bubble
-                bubble.beginPath();
-                bubble.arc(0,100,100,0,Math.PI*2);
-                bubble.fillStyle="rgba(254,0,0,0.3)";
-                bubble.fill();
+<body>
+    <canvas id="bubbleDeco"></canvas>
+    <script>
+        var b = document.getElementById("bubbleDeco");
+        var bubble = b.getContext("2d");
+        b.width = window.innerWidth;
+        b.height = window.innerHeight;
+        
+        //left side bubble
+        bubble.beginPath();
+        bubble.arc(0,250,100,0,Math.PI*2);
+        bubble.fillStyle="rgba(254,0,0,0.3)";
+        bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(88,200,15,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.6)";
-                bubble.fill();
+        bubble.beginPath();
+        bubble.arc(88,350,15,0,Math.PI*2);
+        bubble.fillStyle="rgba(255,77,77,0.6)";
+        bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(60,230,8,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.4)";
-                bubble.fill();
+        bubble.beginPath();
+        bubble.arc(60,380,8,0,Math.PI*2);
+        bubble.fillStyle="rgba(255,77,77,0.4)";
+        bubble.fill();
 
-                //right side bubble
-                bubble.beginPath();
-                bubble.arc(b.width,320,100,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.4))";
-                bubble.fill();
+        //right side bubble
+        bubble.beginPath();
+        bubble.arc(b.width,470,100,0,Math.PI*2);
+        bubble.fillStyle="rgba(255,77,77,0.4))";
+        bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(b.width-88,200,15,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.6)";
-                bubble.fill();
+        bubble.beginPath();
+        bubble.arc(b.width-88,350,15,0,Math.PI*2);
+        bubble.fillStyle="rgba(255,77,77,0.6)";
+        bubble.fill();
 
-                bubble.beginPath();
-                bubble.arc(b.width-60,180,8,0,Math.PI*2);
-                bubble.fillStyle="rgba(255,77,77,0.4)";
-                bubble.fill();
+        bubble.beginPath();
+        bubble.arc(b.width-60,330,8,0,Math.PI*2);
+        bubble.fillStyle="rgba(255,77,77,0.4)";
+        bubble.fill();
+    </script>
 
-            </script>
 
+    <div class="container" style="width:100%; margin:0; padding:0;">
         <div class="header">
             <div class="row align-items-center" style="width:100%;">
             <div class="col-7 ms-5">
@@ -155,77 +154,77 @@
             </div>
         </div>
 
-        
-            <div class="row">
-                <div class="col-6">
+    
+        <div class="row">
+            <div class="col-6">
 
-                    <div>
-                        <label class="info-label" style="margin-bottom:30px;">레드박스</label>
-                    </div>
-
-                    <div class="image-container">
-                        <div id="redbox-container">
-                            <img id="redBox" src="img/redbox.png" alt="#">
-                        </div>
-                    </div>
-
+                <div>
+                    <label class="info-label" style="margin-bottom:30px;">레드박스</label>
                 </div>
 
-                <div class="col-6">
+                <div class="image-container">
+                    <div id="redbox-container">
+                        <img id="redBox" src="img/redbox.png" alt="#">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-6">
+                
+                    <div class="row">
+                        <label class="info-label" style="width:470px; height:auto;">헌혈증 보유량</label>
+                    </div>
+
+                    <div class="row" style="width:470px; height:auto;">
+                        <label id="my-bc">120개</label>
+                    </div>
                     
-                        <div class="row">
-                            <label class="info-label" style="width:470px; height:auto;">헌혈증 보유량</label>
-                        </div>
-
-                        <div class="row" style="width:470px; height:auto;">
-                            <label id="my-bc">120개</label>
-                        </div>
-                        
-                        <div class="row" style="align-text:center;">
-                            <div class="row" style="width:500px; height:auto;">
-                                <div class="col-3">
-                                    <div class="image-container">
-                                        <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
-                                    <div class="text-overlay">A</div>
-                                    </div>
-                                    <label class="how-many-bc">30개</label>
+                    <div class="row" style="align-text:center;">
+                        <div class="row" style="width:500px; height:auto;">
+                            <div class="col-3">
+                                <div class="image-container">
+                                    <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
+                                <div class="text-overlay">A</div>
                                 </div>
+                                <label class="how-many-bc">30개</label>
+                            </div>
 
-                                <div class="col-3">
-                                    <div class="image-container">
-                                        <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
-                                    <div class="text-overlay">B</div>
-                                    </div>                 
-                                    <label class="how-many-bc">27개</label>
-                                </div>
+                            <div class="col-3">
+                                <div class="image-container">
+                                    <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
+                                <div class="text-overlay">B</div>
+                                </div>                 
+                                <label class="how-many-bc">27개</label>
+                            </div>
 
-                                <div class="col-3">
-                                    <div class="image-container">
-                                        <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
-                                    <div class="text-overlay">O</div>
-                                    </div>                 
-                                    <label class="how-many-bc">24개</label>
-                                </div>
+                            <div class="col-3">
+                                <div class="image-container">
+                                    <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
+                                <div class="text-overlay">O</div>
+                                </div>                 
+                                <label class="how-many-bc">24개</label>
+                            </div>
 
-                                <div class="col-3">
-                                    <div class="image-container">
-                                        <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
-                                    <div class="text-overlay">AB</div>
-                                    </div>                 
-                                    <label class="how-many-bc">39개</label>
-                                </div>
+                            <div class="col-3">
+                                <div class="image-container">
+                                    <img style="width:65px; height:120px;" src="img/BLOOD.png" alt="#">
+                                <div class="text-overlay">AB</div>
+                                </div>                 
+                                <label class="how-many-bc">39개</label>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="row" style="position:relative; width:470px; height:200px;">
-                            <button class="req-btn">헌혈증 요청</button>
-                        </div>
-                
-                </div>
+                    <div class="row" style="position:relative; width:470px; height:200px;">
+                        <button class="req-btn">헌혈증 요청</button>
+                    </div>
+            
             </div>
         </div>
-        
-    </body>
+    </div>
+    
+</body>
 
     <footer class="container-fluid footer">
         <h3 style="padding:10px;">기브</h3>
