@@ -41,6 +41,7 @@ public class InitData {
                 .birth_day("11")
                 .donationCount(180L)
                 .gender(Gender.M)
+                .joinDate(LocalDate.now())
                 .build();
         userRepository.saveUser(adminUser);
 
@@ -60,6 +61,7 @@ public class InitData {
                 .birth_day("11")
                 .donationCount(20L)
                 .gender(Gender.F)
+                .joinDate(LocalDate.now())
                 .build();
         userRepository.saveUser(user);
 
@@ -82,6 +84,7 @@ public class InitData {
                 .birth_day("11")
                 .donationCount(200L)
                 .gender(Gender.M)
+                .joinDate(LocalDate.now())
                 .build();
         userRepository.saveUser(userShin);
         for (int i = 1; i <= 10; i++) {

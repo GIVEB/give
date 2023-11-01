@@ -157,6 +157,9 @@ public class DonorCardService {
                         .gender(cardInfo.getGender())
                         .build();
 
+                User loginedUser = userRepository.findUserByUserId(Long.valueOf(loginId)).get();
+                loginedUser.setDonationCount(loginedUser.getDonationCount() +1);
+
                 DonorCardInfoForm donorCardInfoForm = updateCard(cardId, form);
                 cardInfoList.add(donorCardInfoForm);
 

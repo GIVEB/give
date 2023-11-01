@@ -33,6 +33,7 @@ public class DonorCardController {
     })
     @GetMapping
     public Map<String,List<DonorCardInfoForm>> getList(){
+        log.info("client in here!");
         Map<String,List<DonorCardInfoForm>> result = cardService.getCardList();
         return result;
     }

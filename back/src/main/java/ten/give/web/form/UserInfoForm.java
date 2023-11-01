@@ -1,11 +1,12 @@
 package ten.give.web.form;
 
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import ten.give.common.enums.Gender;
 import ten.give.common.enums.Grade;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @ApiModel(value = "로그인 입력 form")
@@ -44,5 +45,7 @@ public class UserInfoForm {
     @ApiModelProperty(value = "성별", example = "MALE, FEMALE")
     private String gender;
 
+    @ApiModelProperty(value = "follwer" , example = "user info")
+    private List<Long> follower = new ArrayList<>();
 
 }

@@ -1,5 +1,6 @@
 package ten.give.domain.exception.advice;
 
+import jdk.jfr.Experimental;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -47,5 +48,6 @@ public class ExceptionAdvice {
         log.error("[exceptionHandle] ex", e);
         return new ExErrorResult("noSuchTarget",e.getMessage());
     }
+
 
 }

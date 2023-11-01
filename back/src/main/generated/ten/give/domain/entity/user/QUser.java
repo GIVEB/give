@@ -36,6 +36,8 @@ public class QUser extends EntityPathBase<User> {
 
     public final NumberPath<Long> donationCount = createNumber("donationCount", Long.class);
 
+    public final ListPath<User, QUser> following = this.<User, QUser>createList("following", User.class, QUser.class, PathInits.DIRECT2);
+
     public final EnumPath<ten.give.common.enums.Gender> gender = createEnum("gender", ten.give.common.enums.Gender.class);
 
     public final DatePath<java.time.LocalDate> joinDate = createDate("joinDate", java.time.LocalDate.class);

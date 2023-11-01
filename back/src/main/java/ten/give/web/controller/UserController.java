@@ -18,6 +18,7 @@ import ten.give.web.service.LoginService;
 import ten.give.web.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -200,6 +201,101 @@ public class UserController {
 
         return userInfoForm;
     }
+
+
+    @ApiOperation(
+            value = "add Follow",
+            notes = "팔로우 하기 <br>" +
+                    "<br> 로그인이 선행 되어 있어야 한다. " +
+                    "[ EX ] URL : http://localhost:8080/users/follow/{targetId}")
+    @ApiImplicitParams(
+            value = {
+                    @ApiImplicitParam(
+                            name = "authentication",
+                            value = "로그인 회원 정보",
+                            required = true,
+                            dataType = "Authentication",
+                            paramType = "header",
+                            defaultValue = "None"
+                    ),
+                    @ApiImplicitParam(
+                            name = "targetId",
+                            value = "Follow 할 대상 ID",
+                            required = true,
+                            dataType = "long",
+                            paramType = "body",
+                            defaultValue = "None"
+                    )
+            }
+    )
+    @ApiResponses({
+            @ApiResponse(code=200, message="성공"),
+    })
+    @PostMapping("/follow/{targetId}")
+    public List<User> follow(Authentication authentication,@PathVariable Long targetId){
+        return userService.follow(Long.valueOf(authentication.getName()), targetId);
+    }
+
+
+    @ApiOperation(
+            value = "unFollow",
+            notes = "언팔로우 하기 <br>" +
+                    "<br> 로그인이 선행 되어 있어야 한다. " +
+                    "[ EX ] URL : http://localhost:8080/users/unfollow/{targetId}")
+    @ApiImplicitParams(
+            value = {
+                    @ApiImplicitParam(
+                            name = "authentication",
+                            value = "로그인 회원 정보",
+                            required = true,
+                            dataType = "Authentication",
+                            paramType = "header",
+                            defaultValue = "None"
+                    ),
+                    @ApiImplicitParam(
+                            name = "targetId",
+                            value = "unFollow 할 대상 ID",
+                            required = true,
+                            dataType = "long",
+                            paramType = "body",
+                            defaultValue = "None"
+                    )
+            }
+    )
+    @ApiResponses({
+            @ApiResponse(code=200, message="성공"),
+    })
+    @PostMapping("/unfollow/{targetId}")
+    public ResultForm unfollow(Authentication authentication,@PathVariable Long targetId){
+        return userService.unFollow(Long.valueOf(authentication.getName()), targetId);
+    }
+
+
+    @ApiOperation(
+            value = "Follwer List",
+            notes = "팔로워 리스트 보기 <br>" +
+                    "<br> 로그인이 선행 되어 있어야 한다. " +
+                    "[ EX ] URL : http://localhost:8080/users/followerList")
+    @ApiImplicitParams(
+            value = {
+                    @ApiImplicitParam(
+                            name = "authentication",
+                            value = "로그인 회원 정보",
+                            required = true,
+                            dataType = "Authentication",
+                            paramType = "header",
+                            defaultValue = "None"
+                    )
+            }
+    )
+    @ApiResponses({
+            @ApiResponse(code=200, message="성공"),
+    })
+    @GetMapping("/followerList")
+    public List<User> getFollower(Authentication authentication){
+        return userService.getFollower(Long.valueOf(authentication.getName()));
+    }
+
 
     /*// coolSMS 구현 로직 연결
     @GetMapping("/sendemail")
