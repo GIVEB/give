@@ -99,26 +99,16 @@
 
 </head>
     <body>
-        <div class="header">
-            <div class="row align-items-center" style="width:100%;">
-            <div class="col-7 ms-5">
-                <img src="img/Main_title.png" alt="#" width="140" height="140">
-            </div>
-            <div class="col-4">
-                <a class="col-1 menufont" href="Event.html">이벤트</a> 
-                <a class="col-1 menufont" href="InQuiry.html">문의</a>
-                <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>        
-            </div>            
-            </div>
-        </div>
-
         <div class="container" style="width:100%; margin:0; padding:0;">
             <canvas id="bubbleDeco"></canvas>
             <script>
+                var container = document.getElementById("container");
+                var h = container.clientHeight;
                 var b = document.getElementById("bubbleDeco");
                 var bubble = b.getContext("2d");
                 b.width = window.innerWidth;
                 b.height = window.innerHeight;
+                b.style.height = h;
                 
                 //left side bubble
                 bubble.beginPath();
@@ -153,6 +143,21 @@
                 bubble.fill();
 
             </script>
+
+        <div class="header">
+            <div class="row align-items-center" style="width:100%;">
+            <div class="col-7 ms-5">
+                <img src="img/Main_title.png" alt="#" width="140" height="140">
+            </div>
+            <div class="col-4">
+                <a class="col-1 menufont" href="Event.html">이벤트</a> 
+                <a class="col-1 menufont" href="InQuiry.html">문의</a>
+                <a class="col-2 menufont" href="ViewMyAccount.html">마이페이지</a>        
+            </div>            
+            </div>
+        </div>
+
+        
             <div class="row">
                 <div class="col-6">
 
@@ -242,5 +247,4 @@
             <div class="col-9" style="text-align:left;"><p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p></div>
         </div>
     </footer>
-
 </html>
