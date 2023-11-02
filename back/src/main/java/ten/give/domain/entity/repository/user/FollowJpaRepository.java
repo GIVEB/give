@@ -10,5 +10,6 @@ import ten.give.domain.entity.user.Follow;
 public interface FollowJpaRepository extends JpaRepository<Follow,Long> {
 
 //    @Query(value = "select f from Follow f where f.fromUser.userId = :fromId and f.toUser.userId = :toId")
-//    void checkFollow(@Param("fromId") Long fromId,@Param("toID") Long toId);
+//    void checkFollow(@Param("fromId") long fromId,@Param("toID") long toId);
+
 }
