@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import ten.give.domain.entity.user.User;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -15,8 +16,10 @@ public interface UserJpaRepository  extends JpaRepository<User,Long> {
     Optional<User> findByEmail(@Param("email") String email);
 
     @Query(value = "select u.donationCount from User u where u.userId = :userId")
-    Long getDonationCountByUserId(Long userId);
+    Long getDonationCountByUserId(@Param("userId")Long userId);
 
     @Query(value = "select SUM(u.donationCount) from User u")
     Long getTotalDonationCount();
+
+
 }

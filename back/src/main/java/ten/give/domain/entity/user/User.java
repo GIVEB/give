@@ -58,9 +58,6 @@ public class User {
 
     private Long donationCount;
 
-    @OneToMany
-    private List<User> following = new ArrayList<>();
-
     public UserInfoForm userTransferToUserInfo(Long totalDonationCount) {
         UserInfoForm userInfoForm = new UserInfoForm();
         userInfoForm.setName(this.name);
@@ -74,11 +71,6 @@ public class User {
         userInfoForm.setTotalDonationCount(totalDonationCount);
         userInfoForm.setGrade(GradeUtils.getGrade(this.donationCount,totalDonationCount));
         userInfoForm.setGender(this.gender.getGender());
-        List<Long> fIds = userInfoForm.getFollower();
-        for (User f :this.following) {
-            fIds.add(f.userId);
-        }
-
         return userInfoForm;
     }
 

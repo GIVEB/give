@@ -1,25 +1,43 @@
-// src/main/frontend/src/App.js
-
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function App() {
-   const [hello, setHello] = useState('')
 
-   useEffect(()=> {
-    fetch('http://localhost:8080/donorcards', {
-        method : "GET"   
-    }).then(res=>res.json()).then(res=>{
-        console.log(1, res);
-        setHello(res);
-    });              
-}, []);
+  const [strArr, setStrArr] = useState([]);
 
-    return (
-        <div>
-            백엔드에서 가져온 데이터입니다 : {hello}
+  useEffect(() => {
+    axios.get('http://localhost:8080/donorcards')
+      .then((response) => {
+        const dd = response.data;
+        const arr = Object.values(dd);
+        setStrArr(arr);
+        console.log(arr);
+      })
+      .catch((error) => {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      });
+  }, []);
+
+  
+  return (
+    <div>
+      {strArr.map((element, index) => (
+        element.map((ex,ed)=>(
+          <div key={ed}>
+          <div>{ex.cardId}</div>
+          <div>{ex.donorCenter}</div>
+          <div>{ex.birth}</div>
+          <div>{ex.donorDate}</div>
+          <div>{ex.gender}</div>
+          <div>{ex.kind}</div>
+          <div>{ex.name}</div>
+          <div>{ex.registrationDate}</div>
+          <div>{ex.userId}</div>
         </div>
-    );
+        ))
+      ))}
+    </div>
+  );
 }
 
 export default App;

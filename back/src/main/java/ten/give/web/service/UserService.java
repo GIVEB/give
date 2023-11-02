@@ -2,7 +2,6 @@ package ten.give.web.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ten.give.domain.entity.repository.account.AccountRepository;
@@ -128,34 +127,7 @@ public class UserService {
         return userRepository.getTotalDonationCount();
     }
 
-    public List<User> follow(Long loginId, Long targetId){
 
-        if (checkFollower(loginId,targetId)){
-            throw new IllegalArgumentException("이미 Follow 중 입니다.");
-        }
 
-        return userRepository.follow(loginId, targetId);
-    }
-
-    public ResultForm unFollow(Long loginId, Long targetId){
-        if (!checkFollower(loginId,targetId)){
-            throw new IllegalArgumentException("Follow 중인 User가 아닙니다.");
-        }
-        return userRepository.deleteFollow(loginId, targetId);
-    }
-
-    public List<User> getFollower(Long userId){
-        return userRepository.getFollowings(userId);
-    }
-
-    private Boolean checkFollower(Long loginId, Long targetId){
-        List<User> followerList = userRepository.getFollowings(loginId);
-        for ( User u: followerList) {
-            if (u.getUserId() == targetId){
-                return true;
-            }
-        }
-        return false;
-    }
 
 }

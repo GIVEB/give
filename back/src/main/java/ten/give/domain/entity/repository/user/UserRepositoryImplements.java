@@ -2,15 +2,10 @@ package ten.give.domain.entity.repository.user;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jaxen.expr.iter.IterableAncestorAxis;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ten.give.domain.entity.user.User;
-import ten.give.domain.exception.NoSuchTargetException;
-import ten.give.domain.exception.form.ResultForm;
 import ten.give.web.form.UserInfoForm;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -83,76 +78,6 @@ public class UserRepositoryImplements implements UserRepository {
         return jpaRepository.getTotalDonationCount();
     }
 
-    @Override
-    public List<User> follow(Long loginId, Long followingId) {
 
-        if (checkSameIds(loginId,followingId)){
-            throw new IllegalArgumentException("자신을 Follow 할 수 는 없습니다.");
-        }
-
-        Optional<User> loginUser = findUserByUserId(loginId);
-
-        if (loginUser.isEmpty()){
-            throw new NoSuchTargetException("존재 하지 않는 로그인 유저 입니다.");
-        }
-
-        Optional<User> target = findUserByUserId(followingId);
-
-        if (target.isEmpty()){
-            throw new NoSuchTargetException("존재 하지 않는 Target 입니다.");
-        }
-
-        loginUser.get().getFollowing().add(target.get());
-
-        saveUser(loginUser.get());
-
-        return new ArrayList<>(loginUser.get().getFollowing());
-    }
-
-    @Override
-    public ResultForm deleteFollow(Long loginId, Long unfollowId) {
-
-        if (checkSameIds(loginId,unfollowId)){
-            throw new IllegalArgumentException("자신을 UnFollow 할 수 는 없습니다.");
-        }
-
-        Optional<User> loginUser = findUserByUserId(loginId);
-
-        if (loginUser.isEmpty()){
-            throw new NoSuchTargetException("존재 하지 않는 로그인 유저 입니다.");
-        }
-
-        Optional<User> target = findUserByUserId(unfollowId);
-
-        if (target.isEmpty()){
-            throw new NoSuchTargetException("존재 하지 않는 Target 입니다.");
-        }
-
-        loginUser.get().getFollowing().remove(target.get());
-
-        saveUser(loginUser.get());
-
-        return new ResultForm(true, target.get().getName()+"님을 Unfollow 하였습니다.");
-    }
-
-    @Override
-    public List<User> getFollowings(Long loginId) {
-        Optional<User> loginUser = findUserByUserId(loginId);
-
-        if (loginUser.isEmpty()){
-            throw new NoSuchTargetException("존재 하지 않는 로그인 유저 입니다.");
-        }
-
-        return loginUser.get().getFollowing();
-    }
-
-    @Override
-    public List<User> getFollower(Long loginId) {
-        return null;
-    }
-
-    private boolean checkSameIds(Long loginId, Long followingId){
-        return loginId == followingId;
-    }
 
 }
