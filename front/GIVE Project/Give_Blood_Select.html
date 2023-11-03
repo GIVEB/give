@@ -108,6 +108,17 @@
       transition: 1s;
       border-radius:20px;
     }
+
+    #bubbleDeco2 {
+      position: fixed;
+      position:absolute;
+      z-index:-1;
+      top:45%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      transition: 1s;
+      border-radius:20px;
+    }
   </style>
 </head>
 
@@ -273,6 +284,48 @@
           <path
             d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
         </svg></div> -->
+        <canvas id="bubbleDeco2" width="400" height="500"></canvas>
+        <script>
+          var d = document.getElementById("bubbleDeco2");
+          var bubble2 = d.getContext("2d");
+
+          //left side bubble
+          bubble2.beginPath();
+          bubble2.arc(0,370,30,0,Math.PI*2);
+          bubble2.fillStyle="rgba(255, 77, 77, 1)";
+          bubble2.fill();
+
+          bubble2.beginPath();
+          bubble2.arc(35,345,7,0,Math.PI*2);
+          bubble2.fillStyle="rgba(255, 77, 77, 0.85)";
+          bubble2.fill();
+
+          bubble2.beginPath();
+          bubble2.arc(22,332,5,0,Math.PI*2);
+          bubble2.fillStyle="rgba(254, 0, 0, 0.3)";
+          bubble2.fill();
+  
+          //right side bubble
+          bubble2.beginPath();
+          bubble2.arc(400,180,70,0,Math.PI*2);
+          bubble2.fillStyle="rgba(255, 77, 77, 0.85)";
+          bubble2.fill();
+
+          bubble2.beginPath();
+          bubble2.arc(340,110,12,0,Math.PI*2);
+          bubble2.fillStyle="rgba(254, 0, 0, 0.5)";
+          bubble2.fill(); 
+
+          bubble2.beginPath();
+          bubble2.arc(370,105,7,0,Math.PI*2);
+          bubble2.fillStyle="rgba(255, 77, 77, 0.5)";
+          bubble2.fill(); 
+
+          bubble2.beginPath();
+          bubble2.arc(355,90,5,0,Math.PI*2);
+          bubble2.fillStyle="rgba(254, 0, 0, 0.3)";
+          bubble2.fill(); 
+        </script>
         
       <div class="text-center mt-5">
         <h1>기부 개수</h1>
@@ -281,10 +334,8 @@
       <div class="container">
         <div class="row">
           
-            <div id="redboxWrapper" class="col text-center mt-4 mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" fill="#FF4D4D" class="bi bi-droplet-fill" viewBox="0 0 16 16">
-                <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z"/>
-              </svg>
+            <div id="redboxWrapper" class="col text-center mt-4 mb-4" style="margin:0;">
+              <div style="margin-top:30px;"><img src="img/Blood.png" alt="#" width="120" height="220"></div>
               <h1 class="text-white"> 4개 </h1>
             </div>
           
