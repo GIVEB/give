@@ -63,7 +63,7 @@
       top: 45%;
       left: 50%;
       width: 800px;
-      height: 600px;
+      height: 550px;
       background-color: white;
       transform: translate(-50%, -50%);
       transition: 1s;
@@ -118,6 +118,12 @@
       transform: translate(-50%, -50%);
       transition: 1s;
       border-radius:20px;
+    }
+
+    #user_data {
+      border: 1px solid rgba(229, 229, 229, 0.875);
+      margin-top:30px;
+      margin-bottom:20px;
     }
   </style>
 </head>
@@ -188,7 +194,7 @@
   <!-- user Donation modal -->
   <div id="userDonationModalContainer" class="modal_container d-none">
     <div id="userDonationModal" class="d-none">
-      <canvas id="bubbleDeco" width="800" height="600"></canvas>
+      <canvas id="bubbleDeco" width="800" height="550"></canvas>
       <script>
         var c = document.getElementById("bubbleDeco");
         var bubble = c.getContext("2d");
@@ -225,7 +231,43 @@
           <div class="col-7">
             <div><h2>대상자 정보 입력</h2></div>
             <form id="user_data">
-              <div class="row mb-5 mt-3">
+
+              <div class="row">
+                <div class="col-1" style="margin-top:10px; margin-left:20px;"><img src="img/profile.png" alt="#" width="55" height="55">
+                  
+                </div>
+                <div class="col-4">
+                  <label style="margin-top:20px;">신영운</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-1" style="margin-top:10px; margin-left:20px;"><img src="img/profile.png" alt="#" width="55" height="55">
+                  
+                </div>
+                <div class="col-4">
+                  <label style="margin-top:20px;">양지웅</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-1" style="margin-top:10px; margin-left:20px;"><img src="img/profile.png" alt="#" width="55" height="55">
+                  
+                </div>
+                <div class="col-4">
+                  <label style="margin-top:20px;">남태현</label>
+                </div>
+              </div>
+
+              <div class="row" style="margin-bottom:20px;">
+                <div class="col-1" style="margin-top:10px; margin-left:20px;"><img src="img/profile.png" alt="#" width="55" height="55">
+                  
+                </div>
+                <div class="col-4">
+                  <label style="margin-top:20px;">양영환</label>
+                </div>
+              </div>
+              <!-- <div class="row mb-5 mt-3">
                 <label for="inputName" class="col-sm-3 col-form-label ">성명</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control input-underline" id="inputName">
@@ -260,8 +302,9 @@
                 <label for="inputPhone" class="col-sm-3 col-form-label">전화번호</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control input-underline" id="inputPhone">
-                </div>
-              </div>
+                </div> 
+              </div> -->
+
             </form>
             
             
