@@ -11,6 +11,30 @@
                 height:100%;
                 display:block;
             }
+
+            #login-btn {
+                background-color: rgba(255, 77, 77, 1);
+                border-radius: 5px;
+                color:white;
+                font-size:20px;
+                margin:10px;
+                width:350px;
+                height:50px;
+                border:none;
+                box-shadow: 0px 0px 5px lightgray;
+            }
+
+            .find {
+                width:90px;
+                height:40px;
+                font-size:12px;
+            }
+            
+            .input-text {
+                width:350px; 
+                margin:10px; 
+                color:rgba(217, 217, 217, 1);
+            }
         </style>
     </head>
 
@@ -71,12 +95,24 @@
         <div id="container" class="container" style="margin:0; padding:0;">
             
             <form class="login-form">
-                <h1 style="padding:0px;">GIVE</h1>
-                <input class="input-style" value="이메일"><br>
-                <input class="input-style" value="비밀번호"><br>
-                <button class="transparent-bg-btn">이메일 찾기</button>
-                <button class="transparent-bg-btn">비밀번호 찾기</button><br>
-                <button class="mypage_btn transparent-bg-btn" style="font-size:25px; margin:10px;">로그인</button>
+                <div class="row align-items-center justify-content-center" style="margin-bottom:100px;">
+                    <h1 style="padding:0px;">로그인</h1>
+                </div>
+                <div class="row align-items-center justify-content-center">
+                    <input class="input-underline input-text" value="이메일"><br>
+                </div>
+                <div class="row align-items-center justify-content-center">
+                    <input class="input-underline input-text" value="비밀번호"><br>
+                </div>
+                <div class="row align-items-center justify-content-center">
+                        <button class="transparent-bg-btn find" style="margin-left:210px;">이메일 찾기</button>
+                    
+                        <button class="transparent-bg-btn find" style="margin-right:25px;">비밀번호 찾기</button>
+                    
+                </div>
+                <div class="row align-items-center justify-content-center">
+                    <button id="login-btn">로그인</button>
+                </div>
             </form>
         </div>
 

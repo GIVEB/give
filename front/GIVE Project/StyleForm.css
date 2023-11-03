@@ -212,10 +212,15 @@ footer {
   }
 
   .login-form {
-    background-color:rgb(207, 207, 207);
-    width:50%;
+    background-color:white;
+    width:500px;
+    height:500px;
     text-align: center;
     margin:100px auto;
+    border:none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px gray;
+    padding:50px;
   }
 
   .signUp-form {
@@ -259,4 +264,11 @@ footer {
   min-width: 100px;
   text-align: center;
   float: right;
+}
+
+.input-underline {
+  border:none;
+  background:none;
+  border-bottom:solid gray 1px;
+  border-radius: none;
 }
