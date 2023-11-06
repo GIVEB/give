@@ -36,7 +36,7 @@ dependencies {
 
 	//mysql connector
 	runtimeOnly 'com.mysql:mysql-connector-j'
-	implementation 'mysql:mysql-connector-java'
+	implementation 'mysql:mysql-connector-j'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 

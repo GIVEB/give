@@ -30,7 +30,7 @@ public class QFollow extends EntityPathBase<Follow> {
 
     public final QUser toUser;
 
-    public final DatePath<java.time.LocalDate> updatDate = createDate("updatDate", java.time.LocalDate.class);
+    public final DatePath<java.time.LocalDate> updateDate = createDate("updateDate", java.time.LocalDate.class);
 
     public QFollow(String variable) {
         this(Follow.class, forVariable(variable), INITS);

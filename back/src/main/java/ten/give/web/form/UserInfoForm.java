@@ -4,6 +4,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import ten.give.common.enums.Grade;
+import ten.give.domain.entity.user.Follow;
+import ten.give.domain.entity.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,10 @@ public class UserInfoForm {
     @ApiModelProperty(value = "성별", example = "MALE, FEMALE")
     private String gender;
 
-    @ApiModelProperty(value = "follwer" , example = "user info")
-    private List<Long> follower = new ArrayList<>();
+    @ApiModelProperty(value = "followings" , example = "followings")
+    private Long followingCount;
+
+    @ApiModelProperty(value = "followers",example = "followers")
+    private Long followerCount;
 
 }

@@ -21,5 +21,6 @@ public interface UserJpaRepository  extends JpaRepository<User,Long> {
     @Query(value = "select SUM(u.donationCount) from User u")
     Long getTotalDonationCount();
 
-
+    @Query(value = "select u from User u where u.name = :name and u.phone = :phoneNumber")
+    User findUserByNameAndPhoneNumber(@Param("name") String name,@Param("phoneNumber") String phoneNumber);
 }

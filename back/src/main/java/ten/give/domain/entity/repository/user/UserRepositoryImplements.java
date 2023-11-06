@@ -78,6 +78,10 @@ public class UserRepositoryImplements implements UserRepository {
         return jpaRepository.getTotalDonationCount();
     }
 
+    @Override
+    public User findUserByNameAndPhoneNumber(String name, String phoneNumber) {
+        return jpaRepository.findUserByNameAndPhoneNumber(name,phoneNumber);
+    }
 
 
 }

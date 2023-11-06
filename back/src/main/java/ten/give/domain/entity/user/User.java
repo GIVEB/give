@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import ten.give.common.enums.Gender;
 import ten.give.common.utils.GradeUtils;
 import ten.give.web.form.UserInfoForm;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Setter
 @Getter
 @Builder
@@ -58,7 +60,7 @@ public class User {
 
     private Long donationCount;
 
-    public UserInfoForm userTransferToUserInfo(Long totalDonationCount) {
+    public UserInfoForm userTransferToUserInfo(Long totalDonationCount, Long followings, Long follows) {
         UserInfoForm userInfoForm = new UserInfoForm();
         userInfoForm.setName(this.name);
         userInfoForm.setBirth_year(this.birth_year);
@@ -71,6 +73,8 @@ public class User {
         userInfoForm.setTotalDonationCount(totalDonationCount);
         userInfoForm.setGrade(GradeUtils.getGrade(this.donationCount,totalDonationCount));
         userInfoForm.setGender(this.gender.getGender());
+        userInfoForm.setFollowingCount(followings);
+        userInfoForm.setFollowerCount(follows);
         return userInfoForm;
     }
 

@@ -4,9 +4,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ten.give.common.utils.RandomTokenUtils;
 import ten.give.domain.entity.repository.account.AccountRepository;
+import ten.give.domain.entity.repository.user.FollowRepository;
 import ten.give.domain.entity.repository.user.UserRepository;
 import ten.give.domain.entity.user.Account;
+import ten.give.domain.entity.user.Follow;
 import ten.give.domain.entity.user.User;
 import ten.give.domain.exception.NoSuchTargetException;
 import ten.give.domain.exception.form.ResultForm;
@@ -25,6 +28,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
     private final DonorCardService donorCardService;
+    private final FollowRepository followRepository;
 
     public ResultForm joinUser(JoinForm form) {
 
@@ -118,7 +122,10 @@ public class UserService {
         Optional<User> updatedUser = userRepository.findUserByUserId(userId);
         Long totalDonationCount = getTotalDonationCount();
 
-        UserInfoForm userInfo = updatedUser.get().userTransferToUserInfo(totalDonationCount);
+        Long followingCount = followRepository.getFollowingCount(userId);
+        Long followerCount = followRepository.getFollowerCount(userId);
+
+        UserInfoForm userInfo = updatedUser.get().userTransferToUserInfo(totalDonationCount,followingCount,followerCount);
 
         return userInfo;
     }
@@ -128,6 +135,53 @@ public class UserService {
     }
 
 
+    public ResultForm findEmail(String name, String phoneNumber) {
+
+        User user = userRepository.findUserByNameAndPhoneNumber(name,phoneNumber);
+
+        if (user == null){
+            throw new NoSuchTargetException("존재하지 않는 회원입니다. [find email]");
+        }
+
+        return new ResultForm(true,user.getAccount().getEmail());
+    }
+
+    public ResultForm findPassword(String name, String email) {
+        Optional<User> user = userRepository.findUserByEmail(email);
+
+        if (user.isEmpty()){
+            throw new NoSuchTargetException("존재하지 않는 회원입니다. [find email]");
+        }
+
+        User target = user.get();
+
+        if(!target.getName().equals(name)){
+            throw new NoSuchTargetException("존재하지 않는 회원입니다. [find email not equals name]");
+        }
+
+        String randomToken = RandomTokenUtils.excuteGenerate();
+        target.getAccount().setPassword(randomToken);
+        userRepository.saveUser(target);
+
+        return new ResultForm(true,target.getAccount().getPassword());
+    }
+
+    public ResultForm editPassword(Long userId, String password) {
+
+        Optional<User> userByUserId = userRepository.findUserByUserId(userId);
+
+        if (userByUserId.isEmpty()){
+            throw new NoSuchTargetException("로그인 필요 [ edit Password ]");
+        }
+
+        User target = userByUserId.get();
+
+        target.getAccount().setPassword(password);
+
+        userRepository.saveUser(target);
+
+        return new ResultForm(true,"정상적으로 password 가 변경 되었습니다.");
+    }
 
 
 }

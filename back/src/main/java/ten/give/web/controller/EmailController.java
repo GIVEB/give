@@ -3,9 +3,7 @@ package ten.give.web.controller;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ten.give.web.form.EmailResultForm;
 import ten.give.web.service.EmailService;
 
@@ -15,15 +13,15 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RestController
 @Api(tags = "EmailController")
+@RequestMapping("/email")
 public class EmailController {
-
 
     private final EmailService emailService;
 
     @ApiOperation(
             value = "DonorCard 정보 수정하기",
             notes = "Donor Card 정보 수정하기<br>" +
-                    "[ EX ] URL : http://localhost:8080/sendmail")
+                    "[ EX ] URL : http://localhost:8080/email/sendmail")
     @ApiImplicitParams(
             value = {
                     @ApiImplicitParam(
@@ -45,4 +43,6 @@ public class EmailController {
         return emailService.sendEmail(toEmail);
 
     }
+
+
 }

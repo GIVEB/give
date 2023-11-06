@@ -14,6 +14,4 @@ public class FollowJpaQueryRepository {
         this.query = new JPAQueryFactory(em);
     }
 
-
-
 }

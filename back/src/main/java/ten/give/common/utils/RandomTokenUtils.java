@@ -1,18 +1,20 @@
 package ten.give.common.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@Slf4j
 @Component
 public class RandomTokenUtils {
 
-    @Value("${email.certNumLength}")
-    private int certNumLength;
+    private static int certNumLength = 4;
 
-    public String excuteGenerate() {
+    public static String excuteGenerate() {
         Random random = new Random(System.currentTimeMillis());
+        log.info("token Util c : {}", certNumLength);
 
         int range = (int)Math.pow(10,certNumLength);
         int trim = (int)Math.pow(10, certNumLength-1);
@@ -21,6 +23,8 @@ public class RandomTokenUtils {
         if(result>range){
             result = result - trim;
         }
+
+        log.info("token Util : {}", result);
 
         return String.valueOf(result);
     }

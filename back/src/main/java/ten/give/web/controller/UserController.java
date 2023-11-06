@@ -3,7 +3,6 @@ package ten.give.web.controller;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.nurigo.java_sdk.exceptions.CoolsmsException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.validation.BindingResult;
@@ -12,14 +11,12 @@ import ten.give.domain.entity.user.Follow;
 import ten.give.domain.entity.user.User;
 import ten.give.domain.exception.NoSuchTargetException;
 import ten.give.domain.exception.form.ResultForm;
-import ten.give.web.form.JoinForm;
-import ten.give.web.form.LoginForm;
-import ten.give.web.form.UserInfoForm;
+import ten.give.web.form.*;
+import ten.give.web.service.FollowService;
 import ten.give.web.service.LoginService;
 import ten.give.web.service.UserService;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +29,7 @@ public class UserController {
 
     private final LoginService loginService;
     private final UserService userService;
+    private final FollowService followService;
 
     @ApiOperation(
             value = "login",
@@ -154,8 +152,10 @@ public class UserController {
             throw new NoSuchTargetException("존재 하지 않는 User 입니다.");
         }
 
-        UserInfoForm userInfoForm = userByEmail.get().userTransferToUserInfo(totalDonationCount);
+        Long followingCount = followService.getFollowingCount(Long.valueOf(authentication.getName()));
+        Long followerCount = followService.getFollowerCount(Long.valueOf(authentication.getName()));
 
+        UserInfoForm userInfoForm = userByEmail.get().userTransferToUserInfo(totalDonationCount,followingCount,followerCount);
 
         return userInfoForm;
 
@@ -205,6 +205,86 @@ public class UserController {
         return userInfoForm;
     }
 
+
+    @ApiOperation(
+            value = "email 찾기",
+            notes = "email 찾기 <br>" +
+                    "[ EX ] URL : http://localhost:8080/users/findemail")
+    @ApiImplicitParams(
+            value = {
+                    @ApiImplicitParam(
+                            name = "name",
+                            value = "사용자 이름",
+                            required = true,
+                            dataType = "String",
+                            paramType = "body",
+                            defaultValue = "None"
+                    ),
+                    @ApiImplicitParam(
+                            name = "phone number",
+                            value = "사용자 전화번호",
+                            required = true,
+                            dataType = "String",
+                            paramType = "body",
+                            defaultValue = "None"
+                    )
+            }
+    )
+    @PostMapping("/findemail")
+    public ResultForm findEmail(@RequestBody FindEmailForm form){
+        return userService.findEmail(form.getName(),form.getPhoneNumber());
+    }
+
+    @ApiOperation(
+            value = "password 찾기",
+            notes = "password 찾기 <br>" +
+                    "[ EX ] URL : http://localhost:8080/users/findpassword")
+    @ApiImplicitParams(
+            value = {
+                    @ApiImplicitParam(
+                            name = "name",
+                            value = "사용자 이름",
+                            required = true,
+                            dataType = "String",
+                            paramType = "body",
+                            defaultValue = "None"
+                    ),
+                    @ApiImplicitParam(
+                            name = "phone number",
+                            value = "사용자 전화번호",
+                            required = true,
+                            dataType = "String",
+                            paramType = "body",
+                            defaultValue = "None"
+                    )
+            }
+    )
+    @PostMapping("/findpassword")
+    public ResultForm findPassword(@RequestBody FindPasswordForm form){
+        return userService.findPassword(form.getName(),form.getEmail());
+    }
+
+    @ApiOperation(
+            value = "password 수정",
+            notes = "password 수정 <br>" +
+                    "[ EX ] URL : http://localhost:8080/users/editpassword")
+    @ApiImplicitParams(
+            value = {
+                    @ApiImplicitParam(
+                            name = "password",
+                            value = "수정 될 비밀번호",
+                            required = true,
+                            dataType = "String",
+                            paramType = "body",
+                            defaultValue = "None"
+                    )
+            }
+    )
+    @PostMapping("/editpassword")
+    public ResultForm editPassword(@RequestBody String password, Authentication authentication){
+        log.info("password : {} ",password);
+        return userService.editPassword(Long.valueOf(authentication.getName()),password);
+    }
 
 
 

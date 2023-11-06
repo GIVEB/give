@@ -24,13 +24,15 @@ public class FollowRepositoryImplements implements FollowRepository{
     @Override
     public boolean checkFollow(Long fromId, Long toId) {
 
-        //jpaRepository.checkFollow(fromId,toId);
+        if(jpaRepository.checkFollow(fromId,toId).isEmpty()){
+            return false;
+        }
 
-        return false;
+        return true;
     }
 
     @Override
-    public ResultForm Follow(Long fromId, Long toId) {
+    public ResultForm follow(Long fromId, Long toId) {
 
         Optional<User> fromUser = userRepository.findUserByUserId(fromId);
 
@@ -49,7 +51,7 @@ public class FollowRepositoryImplements implements FollowRepository{
         follow.setFromUser(fromUser.get());
         LocalDate now = LocalDate.now();
         follow.setCreateDate(now);
-        follow.setUpdatDate(now);
+        follow.setUpdateDate(now);
 
         jpaRepository.save(follow);
 
@@ -59,28 +61,34 @@ public class FollowRepositoryImplements implements FollowRepository{
     @Override
     public ResultForm unFollow(Long fromId, Long toId) {
 
+        Optional<Follow> target = jpaRepository.checkFollow(fromId,toId);
 
+        if (target.isEmpty()){
+            throw new NoSuchTargetException("Follow 관계가 아닙니다.");
+        }
 
-        return null;
+        jpaRepository.deleteFollow(fromId,toId);
+
+        return new ResultForm(true,target.get().getToUser().getName() + "님을 unFollow 하였습니다.");
     }
 
     @Override
-    public List<User> getFollowings(Long loginId) {
-        return null;
+    public List<Follow> getFollowings(Long loginId) {
+        return jpaRepository.findAllByFromId(loginId);
     }
 
     @Override
-    public List<User> getFollowers(Long loginId) {
-        return null;
+    public List<Follow> getFollowers(Long loginId) {
+        return jpaRepository.findAllByToId(loginId);
     }
 
     @Override
     public Long getFollowingCount(Long loginId) {
-        return null;
+        return jpaRepository.countFollowing(loginId);
     }
 
     @Override
-    public Long getFollowwerCount(Long loginId) {
-        return null;
+    public Long getFollowerCount(Long loginId) {
+        return jpaRepository.countFollower(loginId);
     }
 }

@@ -26,5 +26,5 @@ public interface UserRepository {
 
     Long getTotalDonationCount();
 
-
+    User findUserByNameAndPhoneNumber(String name, String phoneNumber);
 }

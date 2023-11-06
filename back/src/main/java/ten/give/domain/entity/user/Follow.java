@@ -14,7 +14,7 @@ public class Follow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="fromUser")
@@ -31,6 +31,15 @@ public class Follow {
     private LocalDate createDate;
 
     @CreationTimestamp
-    private LocalDate updatDate;
+    private LocalDate updateDate;
+
+    public Boolean isEmpty(){
+
+        if (this.id == null){
+            return true;
+        }
+        return false;
+    }
+
 
 }

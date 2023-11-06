@@ -32,8 +32,8 @@ public class AuthenticationConfig {
                 .csrf().disable() // cross site
                 .cors().and()
                 .authorizeHttpRequests() //request 인가
-                .antMatchers("/users/login", "/users/join", "/users/sendsms","/users/test","/sendemail","/donorcards").permitAll() // join , login 은 언제나 사용 가능 (인가 필요 없음)
-                .antMatchers(HttpMethod.POST,"/donorcards/list").authenticated() //API 의 post 요청을 인증 필요
+                .antMatchers("/users/login", "/users/join", "/users/sendsms","/users/findemail","/users/findpassword","email/**","/donorcards").permitAll() // join , login 은 언제나 사용 가능 (인가 필요 없음)
+                .antMatchers(HttpMethod.POST,"/donorcards/list","/users/editPassword").authenticated() //API 의 post 요청을 인증 필요
                 .antMatchers(HttpMethod.DELETE, "/donorcards/list").authenticated()
                 .and()
                 .sessionManagement()
