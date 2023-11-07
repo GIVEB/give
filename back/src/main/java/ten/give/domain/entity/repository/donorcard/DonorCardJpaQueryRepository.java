@@ -8,7 +8,6 @@ import ten.give.domain.entity.donorcard.DonorCard;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-import static ten.give.domain.entity.donorcard.QDonorCard.*;
 
 @Repository
 public class DonorCardJpaQueryRepository {
