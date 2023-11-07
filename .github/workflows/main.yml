@@ -34,7 +34,7 @@ jobs:
     - name: make application.properties
       run: |
         pwd
-        cd /Users/yeongwoonshin/desktop/give
+        cd /Users/yeongwoonshin/desktop/give/back/src/main/resources
         touch application.properties
         echo "${{ secrets.PROPERTIES }}" > ./application.properties
       shell: bash
