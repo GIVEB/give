@@ -21,23 +21,16 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    ## 1) git ignore에 등록된 application.properties 파일 생성해주기
-    ## create application.properties
-    - name: make application.properties
-      run:
-        mkdir ./src/main/resources | 
-        touch ./src/main/resources/application.properties 
-      shell: bash
-        
-    - name: deliver application.properties
-      run: echo "${{ secrets.PROPERTIES }}" > ./src/main/resources/application.properties
-      shell: bash
       
       ## 2) 스프링 프로젝트 jar 파일 빌드
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: | 
+        cd back
+        chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: |
+        cd back
+        ./gradlew build
       
       ## 3) Docker Hub에 이미지 push 하기
     - name: Docker build
