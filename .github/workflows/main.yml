@@ -22,11 +22,13 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     ## 1) git ignore에 등록된 application.properties 파일 생성해주기
-    - name:  make application.properties
+    ## create application.properties
+    - name: make application.properties
       run:
         mkdir ./src/main/resources | 
         touch ./src/main/resources/application.properties 
       shell: bash
+        
     - name: deliver application.properties
       run: echo "${{ secrets.PROPERTIES }}" > ./src/main/resources/application.properties
       shell: bash
