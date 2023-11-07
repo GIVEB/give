@@ -71,17 +71,19 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-clean{
-	delete file('src/main/generated')
+querydsl {
+	jpa = true
+	querydslSourceDir = querydslDir
 }
-
-def querydslSrcDir = 'src/main/generated'
 
 sourceSets {
-	main {
-		java {
-			srcDirs = ['src/main/java', querydslSrcDir]
-		}
-	}
+	main.java.srcDir querydslDir
 }
 
+configurations {
+	querydsl.extendsFrom compileClasspath
+}
+
+compileQuerydsl {
+	options.annotationProcessorPath = configurations.querydsl
+}
