@@ -70,20 +70,6 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-querydsl {
-	jpa = true
-	querydslSourceDir = querydslDir
-}
-
-sourceSets {
-	main.java.srcDir querydslDir
-}
-
-configurations {
-	querydsl.extendsFrom compileClasspath
-}
-
-compileQuerydsl {
-	options.annotationProcessorPath = configurations.querydsl
+clean {
+	delete file(generatedDir)
 }
