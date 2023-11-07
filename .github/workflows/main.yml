@@ -21,12 +21,12 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        
-      ## 1) git ignore에 등록된 application.properties 파일 생성해주기
-    - name: make application.properties
+    ## 1) git ignore에 등록된 application.properties 파일 생성해주기
+    - name: make application.propreties
       run: |
-        cd /Users/yeongwoonshin/desktop/give/back/src/main/resources
-        touch ./application.properties
+        mkdir ./src/main/resources # resources 폴더 생성
+        cd ./src/main/resources # resources 폴더로 이동
+        touch ./application.yml # application.yml 생성
         echo "${{ secrets.PROPERTIES }}" > ./application.properties
       shell: bash
       
