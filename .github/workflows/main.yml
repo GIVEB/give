@@ -24,7 +24,9 @@ jobs:
       
       ## 2) 스프링 프로젝트 jar 파일 빌드
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: | 
+        cd back
+        chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
       
