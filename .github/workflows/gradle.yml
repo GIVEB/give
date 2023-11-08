@@ -23,7 +23,7 @@ jobs:
       - name: Build with Gradle
         run: |
           pwd
-          back/gradlew build
+          ./gradlew build
       - name: Docker build
         run: |
           docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
