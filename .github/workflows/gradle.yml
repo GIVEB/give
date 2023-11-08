@@ -17,9 +17,9 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x back/gradlew
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./back/gradlew build
       - name: Docker build
         run: |
           docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
