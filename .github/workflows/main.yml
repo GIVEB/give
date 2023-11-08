@@ -36,8 +36,8 @@ jobs:
     - name: Docker build
       run: |
         docker login -u ${{ secrets.USERNAME }} -p ${{ secrets.PASSWORD }}
-        docker build -t docker-springboot .
-        docker tag docker-springboot give/docker-springboot:${GITHUB_SHA::7}
+        docker build . -f DockerFile.dockerfile
+        docker tag DockerFile.dockerfile give/docker-springboot:${GITHUB_SHA::7}
         docker push give/docker-springboot:${GITHUB_SHA::7}
         
       ## 4) Docker Hub에 Push한 이미지를 리눅스 서버에 받아와서 run
@@ -52,4 +52,4 @@ jobs:
           docker pull give/docker-springboot:${GITHUB_SHA::7}
           docker tag give/docker-springboot:${GITHUB_SHA::7} docker-springboot
           docker stop server
-          docker run -d --rm --name server -p 80:8080 ocker-springboot
+          docker run -d --rm --name server -p 80:8080 docker-springboot
