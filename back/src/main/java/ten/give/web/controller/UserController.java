@@ -75,12 +75,12 @@ public class UserController {
 
     @ApiOperation(
             value = "Join",
-            notes = "회원 가입하기" +
+            notes = "회원 가입" +
                     "[ EX ] URL : http://localhost:8080/users/join")
     @ApiImplicitParams(
             value = {
                     @ApiImplicitParam(
-                            name = "form",
+                            name = "join form",
                             value = "회원 가입 시 사용자가 입력할 회원 가입 form",
                             required = true,
                             dataType = "JoinForm",

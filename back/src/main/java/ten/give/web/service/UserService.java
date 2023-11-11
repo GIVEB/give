@@ -86,7 +86,7 @@ public class UserService {
                 .Address_detail(form.getAddressDetail())
                 .phone(form.getPhone())
                 .birth_year(form.getBirthYear())
-                .birth_month(form.getBirthDay())
+                .birth_month(form.getBirthMonth())
                 .birth_day(form.getBirthDay())
                 .joinDate(LocalDate.now())
                 .donationCount(0L)
