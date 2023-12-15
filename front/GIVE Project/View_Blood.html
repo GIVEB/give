@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="View_Blood.css" rel="stylesheet">
+  <link href="Mypage.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style>
+  /* View 모달용 */
+  .sec_donor {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Mypage 모달용 */
+  .sec_mypage {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<body>
+  <!-- 헤더 -->
+  <div style="height: 150px;" class="row">
+    <div class="col-6 ps-5 mt-4">
+      <img src="img/logo.png" width="60px" height="60px" onclick="location.href='main.html'">
+      <img src="img/title.png" width="80px" height="40px" onclick="location.href='main.html'">
+    </div>
+    <div class="col-6 mt-4">
+      <div class="profile" onclick="showModal()"> <!--개인별 이미지-->
+        <img src="img/profile.png" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="circleLeft"></div>
+    <div class="circleLeftS"></div>
+    <div class="circleLeftM"></div>
+    <div class="circleLeftL"></div>
+    <div class="circleRight"></div>
+    <div class="circleRightS"></div>
+    <div class="circleRightM"></div>
+
+    <div class="row" style="height: 10vh;">
+      <div style="text-align: left; margin-left: 20%; font-size: 150%; font-weight: bold;" class="col-2">헌혈증 보기</div>
+    </div>
+
+    <!--헌혈증 뷰-->
+    <div class="wrapList">
+      <!-- 한세트 Start -->
+      <div class="list_item" onclick="showDonorCardModal()">
+        <div class="frame">
+          <div class="donor_body"></div>
+          <div class="donor">헌혈증서</div>
+          <div class="card_id">
+            <div class="card_id_wrapper">
+              <p style="margin-left: 5%; margin-top: 3%;">증서<br>번호</p>
+              <div style="margin-left: 5%; margin-top: 5%; font-size: 120%; line-height: 100%;">12-34-56789</div>
+            </div>
+          </div>
+          <div class="kind">헌혈종류:</div>
+          <div class="kind_data">전혈 320mL</div>
+          <div class="date">헌혈일자:</div>
+          <div class="date_data">2023.10.01</div>
+          <div class="donor_center">혈액원명:</div>
+          <div class="donor_center_data">대전.세종.충남 혈액원</div>
+        </div>
+      </div>
+      <!-- 한세트 End -->
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="container-fluid">
+    <h3 style="padding:10px;">기브</h3>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-2"><button class="customer-center-btn">헌혈의 집 찾기</button></div>
+      <div class="col-2"><button class="customer-center-btn">고객센터</button></div>
+      <div class="col-2"><button class="customer-center-btn">레드커넥트</button></div>
+      <div class="col-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-9" style="text-align:left;">
+        <p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-9" style="text-align:left;">
+        <p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 모달달이 mypage -->
+  
+  <div class="sec_mypage d-none">
+    <!-- border -->
+    <div class="my_border">
+      <div class="top_border_rad"></div>
+      <div class="bordertop"></div>
+      <div class="borderleft"></div>
+      <div class="borderbottom"></div>
+      <div class="bottom_border_rad"></div>
+    </div>
+    <!-- 내용 -->
+    <div class="mypage">
+      <!-- 유저 정보 -->
+      <div class="user">
+        <div class="user_profile"><img src="img/profile.png" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        <div class="user_text"> 신영운 </div>
+        <div class="close" onclick="hideModal()"><img src="img/close.png" style="width: 50%; height: 50%; object-fit: cover;"></div>
+      </div>
+      <!-- 팔로우 -->
+      <div class="follow">
+        <div class="following">팔로잉<br><span style="font-size: 130%;">13</span></div>
+        <div class="follower">팔로워<br><span style="font-size: 130%;">13</span></div>
+      </div>
+      <!-- 티어 -->
+      <div class="tier">
+        <div class="mypage_btn" style="color: #FF891D;">
+          <img src="img/tier.png" style="margin-left: 7%; margin-right: 7%; width: 30px; height: 30px; object-fit: cover;">
+          머그컵
+          <span style="margin-left: 10%;">15</span>
+          <img src="img/coin.png" style="margin: 4px; width: 25px; height: 25px; object-fit: cover;">
+        </div>
+      </div>
+      <!-- 기여도 -->      
+      <div class="cont">
+        <div class="mypage_btn" style="font-size: 100%; margin: 0; margin-top: 2%;">
+          <p style="margin:0; width:100%; font-weight: bold; line-height: 135%; text-align: center;">기여도<br>
+            <span style="font-size: 150%;">10%</span></p>
+        </div>
+      </div>
+      <!-- 정보수정 -->
+      <div class="edit">
+        <div class="mypage_btn" style="margin: 0; margin-top: 5%; margin-left: 10%;">
+          <img src="img/update.png" style="margin-left: 7%; margin-right: 7%; width: 35px; height: 35px; object-fit: cover;"> 
+          정보수정
+        </div>
+      </div>
+      <!-- 비밀번호 변경 -->
+      <div class="pass">
+        <div class="mypage_btn" style="margin: 0; margin-top: 5%; margin-left: 2.5%;">
+          <img src="img/change.png" style="margin-left: 7%; margin-right: 7%; width: 35px; height: 35px; object-fit: cover;">
+          비밀번호 변경
+        </div>
+      </div>
+      <!-- 회원탈퇴 -->
+      <div class="with">
+        <div class="mypage_btn" style="margin: 0; margin-top: 5%; margin-left: 10%;">
+          <img src="img/withdraw.png" style="margin-left: 7%; margin-right: 7%; width: 35px; height: 35px; object-fit: cover;">
+          회원탈퇴
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View modal -->
+  <div class="sec_donor d-none">
+    <!-- 뷰 틀 -->
+    <div style="height: 50vh; width: 40vw; margin-top: 25vh; margin-left: 30vw;">
+      <!-- form tag -->
+      <div class="addDonor_section">
+        <!-- 프레임 디자인 -->
+        <div class="addDonor_Frame"></div>
+        <div class="addDonor_Input"></div>
+        <!-- 헌혈 증서 -->
+        <div class="item2DTitle">
+          <div class="DTitle">헌혈증서</div>
+        </div>
+        <!-- 증서 번호 -->
+        <div class="item3Dnum">
+          <div class="Dnum">
+            <p style="margin-left: 5%; margin: auto; margin-left: 5%;">증서<br>번호</p>
+            <label style="margin: auto; margin-left: 0;"> 12-34-56789 </label>
+          </div>
+        </div>
+        <!-- 이름 -->
+        <div class="item4Name">
+          <label style="margin-top: 12%;" for="name" class="form-label">성&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp명:</label>
+          <label style="margin-top: 12%;"> 신영운 </label>
+        </div>
+        <!-- 헌혈 종류 -->
+        <div class="item5Kind">
+          <label style="margin-top: 7.5%;" for="kind" class="form-label">헌혈종류:</label>
+          <div class="kindWrapper">
+            <div class="select kind1">
+              <input type="radio" id="inlineCheckbox1" name="kind" value="option1" checked>
+              <label for="inlineCheckbox1">전혈</label>
+            </div>
+            <div class="select2 kind2">
+              <input type="radio" id="inlineCheckbox2" name="kind" value="option2">
+              <label for="inlineCheckbox2">혈소판</label>
+            </div>
+            <div class="select kind3">
+              <input type="radio" id="inlineCheckbox3" name="kind" value="option3">
+              <label for="inlineCheckbox3">혈장</label>
+            </div>
+            <div class="select4 kind4">
+              <input type="radio" id="inlineCheckbox4" name="kind" value="option4">
+              <label for="inlineCheckbox4">혈소판혈장</label>
+            </div>
+          </div>
+        </div>
+        <!-- 생일 -->
+        <div class="item6Birth">
+          <label for="birth" class="form-label">생년월일:</label>
+          <label> 940211 </label>
+        </div>
+        <!-- 성별 -->
+        <div class="item7Gender">
+          <label style="margin-left: 8.5%;" for="gender" class="form-label">성&nbsp&nbsp&nbsp&nbsp&nbsp별:</label>
+          <div class="genderWrapper">
+            <div class="select">
+              <input type="radio" name="gender" id="male" value="M" checked>
+              <label for="male"> 남 </label>
+            </div>
+            <div class="select">
+              <input type="radio" name="gender" id="female" value="F">
+              <label for="female"> 여 </label>
+            </div>
+          </div>
+        </div>
+        <!-- 감사 문장 -->
+        <div class="item8Text">
+          사랑의 헌혈에 동참하여 생명 나눔을 몸소 실천한 귀하에게<br>
+          깊은 존경과 감사의 마음을 담아 이 증서를 드립니다.
+        </div>
+        <!-- 헌혈일자 -->
+        <div class="item9Blood">
+          <label for="donor_date" class="form-label">헌혈일자:</label>
+          <label> 2023.09.22 </label>
+        </div>
+        <!-- 혈액원명 -->
+        <div class="item10Place">
+          <label style="margin-left: 4%;" for="donor_center" class="form-label">혈액원명:</label>
+          <label> 대전세종충남혈액원 </label>
+        </div>
+        <!-- 보건복지부장관 -->
+        <div class="item11Stamp">
+          <div class="stamp"><img src="img/stamp.png" style="width: 100%; height: 100%; object-fit: cover;"></div>
+        </div>
+        <!-- 닫기 -->
+        <div class="item12Submit" onclick="hideDonorCardModal()"> 닫기</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ModalBack = document.querySelector('.sec_donor');
+    const $ModalMy = document.querySelector('.sec_mypage');
+
+    function showDonorCardModal() {
+      $ModalBack.classList.remove('d-none');
+    }
+    function hideDonorCardModal() {
+      $ModalBack.classList.add('d-none');
+    }
+    function showModal() {
+      $ModalMy.classList.remove('d-none');
+    }
+    function hideModal() {
+      $ModalMy.classList.add('d-none');
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

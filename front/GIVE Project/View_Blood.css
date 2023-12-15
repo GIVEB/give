@@ -1,0 +1,412 @@
+.profile {
+  width: 60px;
+  height: 60px;
+  float: right;
+  margin-right: 40px;
+  border-radius: 50%;
+}
+
+section {
+  position: relative;
+  height: 150vh;
+}
+
+.circleLeft {
+  background-color: #FE0000;
+  opacity: 30%;
+  position: absolute;
+  width: 230px;
+  height: 270px;
+  border-radius: 0 230px 230px 0;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.circleLeftS {
+  background-color: #FF4D4D;
+  opacity: 40%;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: 84%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+}
+
+.circleLeftM {
+  background-color: #FF4D4D;
+  opacity: 40%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  top: 80%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
+.circleLeftL {
+  background-color: #FF4D4D;
+  opacity: 70%;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+  top: 78%;
+  left: 2%;
+  transform: translate(-50%, -50%);
+}
+
+.circleRight {
+  background-color: #FE0000;
+  opacity: 50%;
+  position: absolute;
+  width: 80px;
+  height: 120px;
+  border-radius: 80px 0 0 80px;
+  top: 30%;
+  left: 99%;
+  transform: translate(-50%, -50%);
+}
+
+.circleRightS {
+  background-color: #FF4D4D;
+  opacity: 45%;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: 18%;
+  left: 99%;
+  transform: translate(-50%, -50%);
+}
+
+.circleRightM {
+  background-color: #FF4D4D;
+  opacity: 100%;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  top: 23%;
+  left: 98%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapList {
+  position: absolute;
+  width: 63%;
+  height: 90%;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+.list_item {
+  width: 30%;
+  height: 30vh;
+  border-radius: 25px;
+  background-color: #ffd200;
+  display: inline-block;
+  margin: 1%;
+  box-shadow: 1px 1px 5px;
+}
+.frame{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2% 30% 66% 2%;
+  grid-template-rows: 1.5fr 1.5fr 1.5fr 2fr 0.2fr;
+}
+.donor_body{
+  background-color: #FFF;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  grid-row: 2/span 3;
+  grid-column: 2/span 2;
+}
+.donor{grid-row: 1; grid-column: 2; 
+  font-size: 120%; font-weight: bold; margin-top: 12%; margin-left: 10%;}
+.card_id{grid-row: 1; grid-column: 3;}
+.card_id_wrapper{
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 4%;
+  margin-left: 6%;
+  width: 80%;
+  height: 60%;
+
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 96%;
+}
+.kind{grid-row: 2; grid-column: 2;
+  font-size: 100%; font-weight: bold; margin-top: 12%; margin-left: 10%;}
+.date{grid-row: 3; grid-column: 2;
+  font-size: 100%; font-weight: bold; margin-top: 12%; margin-left: 10%;}
+.donor_center{grid-row: 4; grid-column: 2;
+  font-size: 100%; font-weight: bold; margin-top: 12%; margin-left: 10%;}
+
+.kind_data{grid-row: 2;grid-column: 3;
+  font-size: 100%; font-weight: bold; margin-top: 5.5%; margin-left: 3%;}
+.date_data{grid-row: 3; grid-column: 3;
+  font-size: 100%; font-weight: bold; margin-top: 5.5%; margin-left: 3%;}
+.donor_center_data{grid-row: 4; grid-column:3;
+  font-size: 100%; font-weight: bold; margin-top: 5.5%; margin-left: 3%;}
+
+footer {
+  height:170px;
+  background-color:#F0F0F0;
+  text-align: center;
+  border-top-right-radius: 120px;
+}
+
+.customer-center-btn{
+    
+  height:40px;
+  background-color: #F0F0F0;
+  border:none;
+  cursor:pointer;
+  font-size:17px;
+  padding-left:50px;
+  padding-right:50px;
+  margin:0;
+  text-align:left;
+}
+
+.source_text{
+  font-size:10px;
+  padding-left:60px;
+  padding-right:60px;
+  margin:0;
+}
+
+/* 모달달이 */
+
+label{
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.addDonor_section {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1% 20% 20% 10% 20% 10% 15% 1%;
+  grid-row-gap: 1%;
+  grid-template-rows: 1.2fr 0.7fr 0.7fr 0.7fr 0.7fr 0.7fr 0.7fr 0.02fr 1fr;
+}
+
+.addDonor_Frame{
+  background-color: #ffd200;
+  border-radius: 25px;
+  box-shadow: 1px 1px 3px;
+  grid-row: 2/span 7;
+  grid-column: 1/span 8;
+}
+.addDonor_Input{
+  background-color: #FFF;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  grid-row: 3/span 5;
+  grid-column: 2/span 6;
+}
+
+.item1Title {
+  grid-row: 1;
+  grid-column: 2/span 3;
+}
+.item2DTitle {
+  display: flex;
+  align-items: center;
+  grid-row: 2;
+  grid-column: 2/span 2;
+}
+.DTitle{
+  text-align: center;
+  margin-top: 4%;
+  font-size: 30px; 
+  font-weight: bold;
+  width: 80%;
+  height: 80%;
+}
+
+.item3Dnum {
+  display: flex;
+  align-items: center;
+  grid-row: 2;
+  grid-column: 4/span 4;
+}
+.Dnum{
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 2%;
+  width: 90%;
+  height: 60%;
+
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 92%;
+}
+.item4Name {
+  display: flex;
+  grid-row: 3;
+  grid-column: 2/span 2;
+}
+.item5Kind {
+  display: flex;
+  grid-row: 3;
+  grid-column: 4/span 4;
+}
+.item6Birth {
+  display: flex;
+  grid-row: 4;
+  grid-column: 2/span 2;
+}
+.item7Gender{
+  display: flex;
+  grid-row: 4;
+  grid-column: 4/span 3;
+}
+.item8Text{
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  margin-left: 2.5%;
+  grid-row: 5;
+  grid-column: 2/span 6;
+}
+.item9Blood{
+  display: flex;
+  grid-row: 6;
+  grid-column: 2/span 2;
+}
+.item10Place{
+  display: flex;
+  grid-row: 7;
+  grid-column: 2/span 3;
+}
+.item11Stamp{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  grid-row: 7;
+  grid-column: 5/span 4;
+}
+.stamp{
+  margin-right: 5%;
+  align-items: center;
+  width: 100%;
+}
+.item12Submit{
+  text-align: center;
+  font-size: 120%;
+  font-weight: bold;
+
+  height: 5vh;
+  margin-top: 5%;
+  margin-left: 5%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px;
+  background-color: #ffd200;
+  grid-row: 9;
+  grid-column: 3/span 3;
+}
+
+.kindWrapper{
+  display: grid;
+  grid-template-rows: 2;
+  grid-template-columns: 2;
+}
+.kind1{grid-row: 1; grid-column: 1;}
+.kind2{grid-row: 1; grid-column: 2;}
+.kind3{grid-row: 2; grid-column: 1;}
+.kind4{grid-row: 2; grid-column: 2;}
+
+.genderWrapper{
+  width: 100%;
+  display: flex;
+}
+
+.select{margin-top: 7.5%;}
+
+.select input[type=radio]{
+  display: none;
+}
+
+.select input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 28px;
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.select input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+
+.select input[type=radio]:checked+label{
+  background-color: #FF4747;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.select2 input[type=radio]{
+  display: none;
+}
+
+.select2 input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 28px;
+  width: 75px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.select2 input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+
+.select2 input[type=radio]:checked+label{
+  background-color: #FF4747;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.select4 input[type=radio]{
+  display: none;
+}
+
+.select4 input[type=radio]+label{
+  display: inline-block;
+  cursor: pointer;
+  height: 28px;
+  width: 110px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.select4 input[type=radio]+label{
+  background-color: #fff;
+  color: #333;
+}
+
+.select4 input[type=radio]:checked+label{
+  background-color: #FF4747;
+  color: #fff;
+  border-radius: 3px;
+}

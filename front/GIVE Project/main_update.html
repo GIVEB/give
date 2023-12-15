@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<!-- 사용 style 분리-->
+<link href="main_update.css" rel="stylesheet">
+
+<body>
+    <!-- 헤더 -->
+    <div style="height: 150px;" class="row">
+        <div class="col-6 ps-5 mt-4">
+            <img src="img/logo.png" width="60px" height="60px" onclick="location.href='main.html'">
+            <img src="img/title.png" width="80px" height="40px" onclick="location.href='main.html'">
+        </div>
+        <div class="col-6 mt-4">
+            <div class="profile"> <!--개인별 이미지-->
+                <img src="img/profile.png" style="width: 100%; height: 100%; object-fit: cover;"
+                    onclick="location.href='mypage.html'">
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <!-- 본문 -->
+        <div class="frame">
+            <!-- 헌혈 -->
+            <div class="item1">
+                <div class="col-12 itemTitleFont">헌혈</div>
+                <div class="mt-3 donor_container">
+                    <div class="donor_box">
+                        <div style="width: 100%; text-align: center; font-weight: bold;">
+                            <img src="img/add_ex.png"
+                                style="margin-top: 2.5vh; width: 55px; height: 55px; object-fit: cover;"
+                                onclick="location.href='addForm.html'"><br>등록
+                        </div>
+                    </div>
+                    <div class="donor_box">
+                        <div style="width: 100%; text-align: center; font-weight: bold;">
+                            <img src="img/view_ex.png"
+                                style="margin-top: 2.5vh; width: 55px; height: 55px; object-fit: cover;"
+                                onclick="location.href='ViewBlood.html'"><br>조회
+                        </div>
+                    </div>
+                    <div class="donor_box">
+                        <div style="width: 100%; text-align: center; font-weight: bold;">
+                            <img src="img/request_ex.png"
+                                style="margin-top: 2.5vh; width: 55px; height: 55px; object-fit: cover;"
+                                onclick="location.href='#'"><br>요청
+                        </div>
+                    </div>
+                    <div class="donor_box">
+                        <div style="width: 100%; text-align: center; font-weight: bold;">
+                            <img src="img/go_ex.png"
+                                style="margin-top: 2.5vh; width: 55px; height: 55px; object-fit: cover;"
+                                onclick="location.href='#'"><br>전자문진
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 헌혈하러 가기-->
+            <div class="item2">
+                <div class="col-12 itemTitleFont">&nbsp</div>
+                <div class="mt-3 give_container">
+                    <div class="give_box">
+                        <div style="width: 100%; text-align: center; font-weight: bold; color: white;">
+                            <img src="img/give_ex.png"
+                                style="margin-top: 2.5vh; width: 55px; height: 55px; object-fit: cover;"
+                                onclick="location.href='#'"><br>기부하러 가기
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 공지사항 -->
+            <div class="item3">
+                <div class="col-12 itemTitleFont">공지사항</div>
+                <div class="mt-3 middle_container">
+                    <div class="notice_cal">
+                        <p style="font-weight: bold; text-align: center; margin-top: 2vh; color: #555555;">
+                            <span style="font-size: 175%; color: #4C4C73;">10</span><br>2023.11
+                        </p>
+                    </div>
+                    <div class="notice_main">
+                        <p style="font-weight: bold; font-size: 113%; margin-top: 3.5vh;">
+                            코로나 19 관련 헌혈 금지 기간 안내<br>
+                            <span style="font-size: 66%; color: #6D6969;">코로나19 완치 후 헌혈 참여는 10일 후에 가능하며 ...</span>
+                        </p>
+                    </div>
+                    <!-- notice 리스트 -->
+                    <div class="notice1_tag">●</div>
+                    <div class="notice1_title">의료기관 수혈비용 보상금 신청 안내</div>
+                    <div class="notice1_date"><br>2023.11.05</div>
+
+                    <div class="notice2_tag">●</div>
+                    <div class="notice2_title">울산혈액원 관내 헌혈의 집 휴무 안내</div>
+                    <div class="notice2_date"><br>2023.11.04</div>
+
+                    <div class="notice3_tag">●</div>
+                    <div class="notice3_title">인천혈액원 관할 헌혈의 집 휴무 안내</div>
+                    <div class="notice3_date"><br>2023.11.02</div>
+
+                    <div class="notice4_tag">●</div>
+                    <div class="notice4_title">11월 헌혈의집 운영일정 변경 안내</div>
+                    <div class="notice4_date"><br>2023.11.01</div>
+                </div>
+            </div>
+            <!-- 이벤트 -->
+            <div class="item4">
+                <div class="item3">
+                    <div class="col-12 itemTitleFont">이벤트</div>
+                    <div class="mt-3 middle_container">
+                        <img class="event" src="img/event.png"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;"
+                            onclick="location.href='Event.html'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모두가 함께 기부한 횟수 -->
+            <div class="item5">
+                <div class="count_container">
+                    <div class="CL1"></div><div class="CL2"></div><div class="CL3"></div>
+                    <div class="CL4"></div><div class="CL5"></div>
+                    <div class="CR1"></div><div class="CR2"></div><div class="CR3"></div>
+                    <div class="CR4"></div><div class="CR5"></div>
+                    <span style="font-size: 120%;"> 모두가 함께한 기부 횟수 </span>
+                    <span style="font-size: 300%; color: #BF1B2C;"> <br>156 개 </span>
+                    <span style="font-size: 90%; color: #4C4C73;"><br>2023.11.10 기준 </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="container-fluid">
+        <h3 style="padding:10px;">기브</h3>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-2"><button class="customer-center-btn">헌혈의 집 찾기</button></div>
+            <div class="col-2"><button class="customer-center-btn">고객센터</button></div>
+            <div class="col-2"><button class="customer-center-btn">레드커넥트</button></div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-9" style="text-align:left;">
+                <p class="source_text">[26465]강원특별자치도 원주시 혁신로 50 대한적십자사 혈액관리본부</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-9" style="text-align:left;">
+                <p class="source_text">COPYRIGHT(C) GIVE ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
